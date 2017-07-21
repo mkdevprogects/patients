@@ -6,6 +6,8 @@ class CreatePatients < ActiveRecord::Migration
       t.string :patronymic
       t.string :phone
       t.string :email
+
+      t.timestamps
     end
   end
 end
