@@ -94,3 +94,7 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+def email
+  "qwerty#{rand(1000)}@gmail.com"
+end

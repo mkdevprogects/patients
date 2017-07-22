@@ -2,10 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Patient, type: :model do
 
-  def email
-    "qwerty#{rand(1000)}@gmail.com"
-  end
-
   before(:each) do
     @patient = Patient.new
   end
