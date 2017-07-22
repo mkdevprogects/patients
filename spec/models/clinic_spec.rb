@@ -34,7 +34,7 @@ RSpec.describe Clinic, type: :model do
     end
 
     subject(:clinic) { @clinic.email = email; @clinic }
-    subject(:doctor) { Doctor.new(email: email) }
+    let(:doctor) { Doctor.new(email: email) }
 
     it 'клиника может добавлять доктора в список врачей клиники' do
       expect(clinic.doctors).not_to be_nil
