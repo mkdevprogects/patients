@@ -9,13 +9,12 @@ RSpec.describe Clinic, type: :model do
 
     subject(:clinic) { @clinic }
 
-    it 'clinics email not tot be nil' do
-      clinic.email = email
-      expect(clinic.email).not_to be_nil
+    it 'поле email должно быть заполнено' do
+      is_expected.to validate_presence_of(:email)
     end
 
-    it 'clinic should have uniqueness email' do
-      #   тут должен быть тест на уникальность email клиники, но я не нашел способа использовать БД
+    it 'email должен быть уникальным' do
+      is_expected.to validate_uniqueness_of(:email)
     end
 
     it 'клиника должна сохранятья в базу, если у неё указан email' do
