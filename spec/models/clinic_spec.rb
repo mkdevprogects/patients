@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Clinic, type: :model do
-
   context 'валидация email клиники' do
-
     it 'поле email должно быть заполнено' do
       is_expected.to validate_presence_of(:email)
     end
@@ -14,7 +12,6 @@ RSpec.describe Clinic, type: :model do
   end
 
   context 'наличие у клиники, работающих в ней врачей' do
-
     it 'в клинике может работать много врачей' do
       is_expected.to have_many(:doctors)
     end

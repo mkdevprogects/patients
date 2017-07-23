@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :clinic do
+  factory :doctor do
     # name
     # surname
     # patronymic
