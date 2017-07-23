@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 ruby '2.4.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.8'
@@ -46,3 +45,11 @@ group :development do
   gem 'spring'
 end
 
+group :development, :test do
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'shoulda-matchers', '~> 3.0'
+  gem 'rubocop', '~> 0.49.1', require: false
+end
+
+gem 'simplecov', require: false, group: :test
