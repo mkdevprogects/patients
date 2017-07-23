@@ -4,8 +4,6 @@ RSpec.describe Patient, type: :model do
 
   context 'валидация email пациента' do
 
-    subject(:patient) { @patient }
-
     it 'поле email должно быть заполнено' do
       is_expected.to validate_presence_of(:email)
     end
