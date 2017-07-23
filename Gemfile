@@ -49,6 +49,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda-matchers', '~> 3.0'
+  gem 'rubocop', '~> 0.49.1', require: false
 end
 
-gem 'rubocop', '~> 0.49.1', require: false
+
