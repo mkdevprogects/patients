@@ -51,3 +51,5 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'shoulda-matchers', '~> 3.0'
 end
+
+gem 'rubocop', '~> 0.49.1', require: false
