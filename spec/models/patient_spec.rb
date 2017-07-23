@@ -45,5 +45,10 @@ RSpec.describe Patient, type: :model do
       patient.doctors << doctor
       expect(patient.doctors.size).to be > 1
     end
+
+    it 'пациент может добавлять врачей в "мои"' do
+      is_expected.to have_many(:doctors)
+      # is_expected.to have_many(:doctors).through(:ilnesses)
+    end
   end
 end

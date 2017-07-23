@@ -44,6 +44,10 @@ RSpec.describe Doctor, type: :model do
       doctor.patients << patient
       expect(doctor.patients.size).to be > 1
     end
+
+    it 'врач может добавлять пациентов в список "своих" пациентов' do
+      is_expected.to have_many(:patients)
+    end
   end
 
   context 'наличие нескольких мест работы у врача' do
@@ -62,6 +66,10 @@ RSpec.describe Doctor, type: :model do
     it 'у врача может быть много мест работы' do
       doctor.clinics << clinic
       expect(doctor.clinics.size).to be > 1
+    end
+
+    it 'у врача может быть много мест работы' do
+      is_expected.to have_many(:clinics)
     end
   end
 end

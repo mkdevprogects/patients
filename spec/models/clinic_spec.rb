@@ -44,5 +44,9 @@ RSpec.describe Clinic, type: :model do
       clinic.doctors << doctor
       expect(clinic.doctors.size).to be > 1
     end
+
+    it 'в клинике может работать много врачей' do
+      is_expected.to have_many(:doctors)
+    end
   end
 end
