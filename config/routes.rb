@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'patient/index'
+
   get 'home/index'
 
   devise_for :patients, controllers: {

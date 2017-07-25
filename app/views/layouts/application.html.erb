@@ -17,6 +17,20 @@
 </head>
 <body>
 
+<% if patient_signed_in? %>
+    <p>Пациент авторизован</p>
+    <%= link_to 'Выйти', destroy_patient_session_path, method: :delete %>
+<% else %>
+    <p>Гость!</p>
+  <%= link_to 'Зарегистрироваться', new_patient_registration_path %>
+  <%= link_to 'Войти', new_patient_session_path %>
+<%	end %>
+<% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+<% end %>
 <%= yield %>
 
 </body>
