@@ -1,0 +1,7 @@
+<h1>Illnesses#index</h1>
+<p>Find me in app/views/illnesses/index.html.erb</p>
+<ul>
+<% current_patient.illnesses.each do |illness| %>
+    <li><%= illness.inspect %></li>
+<% end %>
+</ul>

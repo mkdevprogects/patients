@@ -37,8 +37,8 @@ class AddDeviseToPatients < ActiveRecord::Migration
 
     add_index :patients, :email,                unique: true
     add_index :patients, :reset_password_token, unique: true
-    # add_index :patients, :confirmation_token,   unique: true
-    # add_index :patients, :unlock_token,         unique: true
+    # add_index :patient, :confirmation_token,   unique: true
+    # add_index :patient, :unlock_token,         unique: true
   end
 
   def self.down

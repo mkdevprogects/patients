@@ -13,7 +13,7 @@ RSpec.describe Doctor, type: :model do
 
   context 'наличие "своих" пациентов у врача' do
     it 'врач может добавлять пациентов в список "своих" пациентов' do
-      is_expected.to have_many(:patients)
+      is_expected.to have_many(:patient)
     end
   end
 

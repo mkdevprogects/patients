@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  resources :illnesses, :home, :clinics, :doctors, only: [:index]
 
-  devise_for :patients, controllers: {
-      sessions: 'patients/sessions'
+  devise_for :patient, controllers: {
+      sessions: 'patient/sessions'
   }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
