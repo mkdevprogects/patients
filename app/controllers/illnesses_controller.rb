@@ -1,4 +1,4 @@
-class IllnessesController < ApplicationController
+class IllnessesController < BaseController
   def index
   end
 end

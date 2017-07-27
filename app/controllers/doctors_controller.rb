@@ -1,5 +1,4 @@
-class DoctorsController < ApplicationController
-  before_action :authenticate_patient!
+class DoctorsController < BaseController
   def index
     @doctors = Doctor.all
   end

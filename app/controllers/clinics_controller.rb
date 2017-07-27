@@ -1,5 +1,4 @@
-class ClinicsController < ApplicationController
-  before_action :authenticate_patient!
+class ClinicsController < BaseController
   def index
   end
 end
