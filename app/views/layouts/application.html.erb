@@ -19,13 +19,15 @@
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">На главную</a>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'На главную', home_index_path %></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if patient_signed_in? %>
-              <li><%==	link_to 'Клиники', clinics_index_path %></li>
-              <li><%==	link_to 'Врачи', doctors_index_path %></li>
-              <li><%==	link_to 'Болезни', illnesses_index_path %></li>
+              <li><%=	link_to 'Клиники', clinics_path %></li>
+              <li><%=	link_to 'Врачи', doctors_path %></li>
+              <li><%=	link_to 'Болезни', illnesses_path %></li>
               <li><%= link_to 'Профиль', edit_patient_registration_path %></li>
             <li><%= link_to 'Выйти', destroy_patient_session_path, method: :delete %></li>
         <% else %>
