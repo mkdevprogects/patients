@@ -16,12 +16,15 @@
   </script>
 </head>
 <body>
-
+<%= link_to 'На главную', home_index_path %> <br><br>
 <% if patient_signed_in? %>
-    <p>Пациент авторизован</p>
     <%= link_to 'Выйти', destroy_patient_session_path, method: :delete %>
+    <ul>
+      <li>
+        <%= link_to 'Профиль', edit_patient_registration_path %>
+      </li>
+    </ul>
 <% else %>
-    <p>Гость!</p>
   <%= link_to 'Зарегистрироваться', new_patient_registration_path %>
   <%= link_to 'Войти', new_patient_session_path %>
 <%	end %>

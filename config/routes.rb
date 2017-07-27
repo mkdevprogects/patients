@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'patients/index'
+  get 'patient/index'
 
   get 'home/index'
 
-  devise_for :patients, controllers: {
+  devise_for :patient, controllers: {
       sessions: 'patient/sessions'
   }
   # The priority is based upon order of creation: first created -> highest priority.
