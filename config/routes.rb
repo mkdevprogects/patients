@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'clinics/index'
+
   get 'doctors/index'
 
   get 'patient/index'

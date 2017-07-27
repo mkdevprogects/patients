@@ -20,8 +20,9 @@
 <% if patient_signed_in? %>
     <%= link_to 'Выйти', destroy_patient_session_path, method: :delete %>
     <ul>
-      <li><%= link_to 'Профиль', edit_patient_registration_path %></li>
+      <li><%==	link_to 'Клиники', clinics_index_path %></li>
       <li><%==	link_to 'Врачи', doctors_index_path %></li>
+      <li><%= link_to 'Профиль', edit_patient_registration_path %></li>
     </ul>
 <% else %>
   <%= link_to 'Зарегистрироваться', new_patient_registration_path %>
