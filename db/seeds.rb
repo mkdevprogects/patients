@@ -19,27 +19,39 @@ clinics = [
 clinics.each do |params|
   Clinic.create!(params)
 end
+doctors = [
+    {name: 'Натаван', surname: 'Альтшулер', patronymic: 'Ивановна', phone: '21111111111', email: 'doctor.1.@doctor.com',
+    clinics: [Clinic.first, Clinic.find(5)]},
+    {name: 'София', surname: 'Бугайченко', patronymic: 'Сергеевна', phone: '21111111112', email: 'doctor.2.@doctor.com',
+     clinics: [Clinic.find(1), Clinic.last] },
+    {name: 'Олег', surname: 'Макаров', patronymic: 'Викторович', phone: '21111111113', email: 'doctor.3.@doctor.com',
+     clinics: [Clinic.find(2)]},
+    {name: 'Перване', surname: 'Алексерова', patronymic: 'Игоревна', phone: '21111111114', email: 'doctor.4.@doctor.com',
+     clinics: [Clinic.find(3)]},
+    {name: 'Whalter', surname: 'White', patronymic: 'Testovich', phone: '21111111115', email: 'doctor.5.@doctor.com',
+     clinics: [Clinic.find(4), Clinic.find(2), Clinic.find(3)]},
+]
+
+doctors.each do |params|
+  Doctor.create!(params)
+end
 
 patients = [
-    {name: 'Илья', surname: 'Гордиенко', patronymic: 'Арсеньевич', phone: '11111111111', email: 'patient.1.@patient.com', password: '123123'},
-    {name: 'Кирилл', surname: 'Семкин', patronymic: 'Сергеевич', phone: '11111111112', email: 'patient.2.@patient.com', password: '123123'},
-    {name: 'Олег', surname: 'Осташков', patronymic: 'Олегович', phone: '11111111113', email: 'patient.3.@patient.com', password: '123123'},
-    {name: 'Константин', surname: 'Жданов', patronymic: 'Александрович', phone: '11111111114', email: 'patient.4.@patient.com', password: '123123'},
-    {name: 'Роман', surname: 'Лапин', patronymic: 'Евгеньевич', phone: '11111111115', email: 'patient.5.@patient.com', password: '123123'},
+    {name: 'Илья', surname: 'Гордиенко', patronymic: 'Арсеньевич', phone: '11111111111', email: 'patient.1.@patient.com', password: '123123',
+    doctors: [Doctor.first, Doctor.find(3), Doctor.last]},
+    {name: 'Кирилл', surname: 'Семкин', patronymic: 'Сергеевич', phone: '11111111112', email: 'patient.2.@patient.com', password: '123123',
+     doctors: [Doctor.find(1), Doctor.last]},
+    {name: 'Олег', surname: 'Осташков', patronymic: 'Олегович', phone: '11111111113', email: 'patient.3.@patient.com', password: '123123',
+     doctors: [Doctor.find(2), Doctor.last]},
+    {name: 'Константин', surname: 'Жданов', patronymic: 'Александрович', phone: '11111111114', email: 'patient.4.@patient.com', password: '123123',
+     doctors: [Doctor.find(3), Doctor.last]},
+    {name: 'Роман', surname: 'Лапин', patronymic: 'Евгеньевич', phone: '11111111115', email: 'patient.5.@patient.com', password: '123123',
+     doctors: [Doctor.find(2), Doctor.last]},
 ]
 
 patients.each do |params|
   Patient.create!(params)
 end
 
-doctors = [
-    {name: 'Натаван', surname: 'Альтшулер', patronymic: 'Ивановна', phone: '21111111111', email: 'doctor.1.@doctor.com'},
-    {name: 'София', surname: 'Бугайченко', patronymic: 'Сергеевна', phone: '21111111112', email: 'doctor.2.@doctor.com'},
-    {name: 'Олег', surname: 'Макаров', patronymic: 'Викторович', phone: '21111111113', email: 'doctor.3.@doctor.com'},
-    {name: 'Перване', surname: 'Алексерова', patronymic: 'Игоревна', phone: '21111111114', email: 'doctor.4.@doctor.com'},
-    {name: 'Whalter', surname: 'White', patronymic: 'Testovich', phone: '21111111115', email: 'doctor.5.@doctor.com'},
-]
 
-doctors.each do |params|
-  Doctor.create!(params)
-end
+
