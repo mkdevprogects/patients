@@ -1,9 +1,10 @@
 FactoryGirl.define do
-  factory :doctor do
+  factory :patient do
     # name
     # surname
     # patronymic
     # phone
-    email 'doctor@gmail.com'
+    email 'patient@gmail.com'
+    password '123123'
   end
 end
