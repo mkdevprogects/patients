@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170728105048) do
+ActiveRecord::Schema.define(version: 20170728190835) do
 
   create_table "clinics", force: :cascade do |t|
     t.string   "title"
@@ -22,10 +22,14 @@ ActiveRecord::Schema.define(version: 20170728105048) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "doctor_grades", force: :cascade do |t|
+    t.integer "doctor_id"
+    t.integer "grade_id"
+  end
+
   create_table "doctor_specializations", force: :cascade do |t|
     t.integer "doctor_id"
     t.integer "specialization_id"
-    t.string  "grade"
   end
 
   create_table "doctors", force: :cascade do |t|
@@ -36,6 +40,10 @@ ActiveRecord::Schema.define(version: 20170728105048) do
     t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "grades", force: :cascade do |t|
+    t.string "title"
   end
 
   create_table "illnesses", force: :cascade do |t|
@@ -72,6 +80,7 @@ ActiveRecord::Schema.define(version: 20170728105048) do
 
   create_table "specializations", force: :cascade do |t|
     t.string "title"
+    t.string "code"
   end
 
 end

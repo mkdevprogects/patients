@@ -8,6 +8,9 @@ class Doctor < ActiveRecord::Base
   has_many :doctor_specializations
   has_many :specializations, through: :doctor_specializations
 
+  has_many :doctor_grades
+  has_many :grades, through: :doctor_grades
+
   validates :email, presence: true
   validates :email, uniqueness: true
 end
