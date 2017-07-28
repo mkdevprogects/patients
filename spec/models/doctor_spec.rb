@@ -21,9 +21,15 @@ RSpec.describe Doctor, type: :model do
     it 'у врача может быть много мест работы' do
       is_expected.to have_many(:clinics)
     end
+  end
 
+  context 'наличие нескольких специализаций и квалификаций у врача' do
     it 'у врача может быть несколько специализаций' do
       is_expected.to have_many(:specializations)
+    end
+
+    it 'у врача может быть несколько квалификаций' do
+      is_expected.to have_many(:grades)
     end
   end
 end

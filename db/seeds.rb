@@ -26,34 +26,42 @@ clinics = [
 clinics.each do |params|
   Clinic.create!(params)
 end
+
+grades = [
+    {title: 'Врач второй категории'}, {title: 'Врач высшей категории'},
+    {title: 'Врач первой категории'}, {title: 'Доктор медицинских наук'},
+    {title: 'Кандидат медицинских наук'}, {title: 'Профессор'}
+]
+
+grades.each do |params|
+  Grade.create!(params)
+end
+
 doctors = [
     {name: 'Натаван', surname: 'Альтшулер', patronymic: 'Ивановна', phone: '21111111111', email: 'doctor.1.@doctor.com',
     clinics: [Clinic.first, Clinic.find(5)],
-     specializations: [Specialization.find_by_code('therap')]},
+     specializations: [Specialization.find_by_code('therap')],
+     grades: [Grade.find(1)]},
     {name: 'София', surname: 'Бугайченко', patronymic: 'Сергеевна', phone: '21111111112', email: 'doctor.2.@doctor.com',
      clinics: [Clinic.find(1), Clinic.last],
-     specializations: [Specialization.find_by_code('pediatr')]},
+     specializations: [Specialization.find_by_code('pediatr')],
+     grades: [Grade.find(2)]},
     {name: 'Олег', surname: 'Макаров', patronymic: 'Викторович', phone: '21111111113', email: 'doctor.3.@doctor.com',
      clinics: [Clinic.find(2)],
-     specializations: [Specialization.find_by_code('surg'), Specialization.find_by_code('neuropatholog')]},
+     specializations: [Specialization.find_by_code('surg'), Specialization.find_by_code('neuropatholog')],
+     grades: [Grade.find(5)]},
     {name: 'Перване', surname: 'Алексерова', patronymic: 'Игоревна', phone: '21111111114', email: 'doctor.4.@doctor.com',
      clinics: [Clinic.find(3)],
-     specializations: [Specialization.find_by_code('podiatr'), Specialization.find_by_code('orthoped')]},
+     specializations: [Specialization.find_by_code('podiatr'), Specialization.find_by_code('orthoped')],
+     grades: [Grade.find(4)]},
     {name: 'Whalter', surname: 'White', patronymic: 'Testovich', phone: '21111111115', email: 'doctor.5.@doctor.com',
      clinics: [Clinic.find(4), Clinic.find(2), Clinic.find(3)],
-     specializations: [Specialization.find_by_code('therap'), Specialization.find_by_code('pediatr')]}
-]
-
-grades = [
-    'Врач второй категории', 'Врач высшей категории',
-    'Врач первой катгории', 'Доктор медицинских наук',
-    'Кандидат медицинских наук', 'Профессор',
+     specializations: [Specialization.find_by_code('therap'), Specialization.find_by_code('pediatr')],
+     grades: [Grade.find(3), Grade.find(6)]}
 ]
 
 doctors.each do |params|
-  Doctor.create!(params).doctor_specializations.each do |spec|
-    spec.update(grade: grades.shuffle.first)
-  end
+  Doctor.create!(params)
 end
 
 patients = [
@@ -72,6 +80,3 @@ patients = [
 patients.each do |params|
   Patient.create!(params)
 end
-
-
-

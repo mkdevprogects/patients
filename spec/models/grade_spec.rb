@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Grade, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'может быть много врачей одной квалификации' do
+    is_expected.to have_many(:doctors)
+    end
 end
