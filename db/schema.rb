@@ -37,12 +37,14 @@ ActiveRecord::Schema.define(version: 20170723194831) do
     t.integer "doctor_id"
   end
 
-  create_table "patient", force: :cascade do |t|
+  create_table "patients", force: :cascade do |t|
     t.string   "name"
     t.string   "surname"
     t.string   "patronymic"
     t.string   "phone"
     t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
