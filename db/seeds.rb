@@ -6,6 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+specializations = [
+    {title: 'Терапевт'}, {title: 'Педиатр'}, {title: 'Отоларинголог'},
+    {title: 'Хирург'}, {title: 'Невропатолог'}, {title: 'Психолог'},
+    {title: 'Ревматолог'}, {title: 'Аллерголог'}, {title: 'Кардиолог'},
+    {title: 'Стоматолог'}, {title: 'Подиатр'}, {title: 'Ортопед'},
+    {title: 'Офтальмолог'}, {title: 'Гинеколог'}, {title: 'Андролог'}
+]
+
+specializations.each do |params|
+  Specialization.create!(params)
+end
+
 clinics = [
     {title: 'Медлайн', phone: '1111111111', address: 'Невский просп., д. 2', email: 'clinic.1.@clinic.com'},
     {title: 'АЦЗ', phone: '2222222222', address: 'ул. Широкая, д. 15', email: 'clinic.2.@clinic.com'},
@@ -21,19 +33,32 @@ clinics.each do |params|
 end
 doctors = [
     {name: 'Натаван', surname: 'Альтшулер', patronymic: 'Ивановна', phone: '21111111111', email: 'doctor.1.@doctor.com',
-    clinics: [Clinic.first, Clinic.find(5)]},
+    clinics: [Clinic.first, Clinic.find(5)],
+     specializations: [Specialization.first]},
     {name: 'София', surname: 'Бугайченко', patronymic: 'Сергеевна', phone: '21111111112', email: 'doctor.2.@doctor.com',
-     clinics: [Clinic.find(1), Clinic.last] },
+     clinics: [Clinic.find(1), Clinic.last],
+     specializations: [Specialization.first] },
     {name: 'Олег', surname: 'Макаров', patronymic: 'Викторович', phone: '21111111113', email: 'doctor.3.@doctor.com',
-     clinics: [Clinic.find(2)]},
+     clinics: [Clinic.find(2)],
+     specializations: [Specialization.find(5), Specialization.find(6)]},
     {name: 'Перване', surname: 'Алексерова', patronymic: 'Игоревна', phone: '21111111114', email: 'doctor.4.@doctor.com',
-     clinics: [Clinic.find(3)]},
+     clinics: [Clinic.find(3)],
+     specializations: [Specialization.find(11), Specialization.find(12)]},
     {name: 'Whalter', surname: 'White', patronymic: 'Testovich', phone: '21111111115', email: 'doctor.5.@doctor.com',
-     clinics: [Clinic.find(4), Clinic.find(2), Clinic.find(3)]},
+     clinics: [Clinic.find(4), Clinic.find(2), Clinic.find(3)],
+     specializations: [Specialization.first, Specialization.find(2)]}
+]
+
+grades = [
+    'Врач второй категории', 'Врач высшейкатегории',
+    'Врач первой катгории', 'Доктор медицинских наук',
+    'Кандидат медицинских наук', 'Профессор',
 ]
 
 doctors.each do |params|
-  Doctor.create!(params)
+  Doctor.create!(params).doctor_specializations.each do |spec|
+    spec.update(grade: grades.shuffle.first)
+  end
 end
 
 patients = [
