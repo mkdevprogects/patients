@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :prescription do
-    sequence(:recommendations) { |n| "Раз #{n} в день" }
+    sequence(:recommendations) { Faker::Matz.quote }
   end
 end

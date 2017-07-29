@@ -1,13 +1,13 @@
 FactoryGirl.define do
   sequence :name do |n|
-    "Имя#{n}"
+    Faker::StarTrek.character
   end
 
   sequence :surname do |n|
-    "Фамилия#{n}"
+    Faker::LordOfTheRings.character
   end
 
   sequence :description do |n|
-    "Какое-то описание чего-то #{n}"
+    Faker::Hobbit.quote
   end
 end
