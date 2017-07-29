@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :prescription do
-    recommendations 'Утром и вечером после еды'
+    sequence(:recommendations) { |n| "Раз #{n} в день" }
   end
 end

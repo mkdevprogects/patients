@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :symptom do
-    title 'Головная боль'
-    description 'Это одна из наиболее распространенных жалоб.'
+    sequence(:title) { |n| "Какой-то симптом #{n}" }
+    description
   end
 end

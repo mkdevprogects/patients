@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :patient do
-    # name
-    # surname
+    name
+    surname
     # patronymic
     # phone
-    email 'patient@gmail.com'
+    sequence(:email) { |n| "patient#{n}@patient.com" }
     password '123123'
   end
 end

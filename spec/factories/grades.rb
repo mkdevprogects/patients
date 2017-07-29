@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :grade do
-    title 'Врач высшей категории'
+    sequence(:title) { |n| "Врач #{n} категории" }
   end
 end

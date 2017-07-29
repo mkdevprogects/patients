@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :clinic do
-    # title
+    sequence(:title) { |n| "Клиника #{n}" }
+    sequence(:email) { |n| "clinic#{n}@clinic.com" }
     # phone
-    email 'clinic@gmail.com'
     # address
   end
 end

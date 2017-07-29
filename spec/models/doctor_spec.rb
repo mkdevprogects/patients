@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Doctor, type: :model do
+  context 'валидация фамилии и имени врача' do
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:surname) }
+  end
+
   context 'валидация email врача' do
     it 'поле email должно быть заполнено' do
       is_expected.to validate_presence_of(:email)
