@@ -1,0 +1,6 @@
+<h1>Специализации</h1>
+<div class="list-group">
+  <% @specializations.each do |spec| %>
+        <%= link_to spec.title, specialization_doctors_path(specialization_id: spec.id), class: "list-group-item" %>
+  <% end %>
+</div>
