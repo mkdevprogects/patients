@@ -13,6 +13,18 @@ specializations.each do |params|
   Specialization.create!(params)
 end
 
+symptoms = [
+    {title: 'Головная боль', description: 'Описание 11111'},
+    {title: 'Тошнота', description: 'Описание 22222'},
+    {title: 'Учащенное сердцебиение', description: 'Описание 33333'},
+    {title: 'Отдышка', description: 'Описание 44444'},
+    {title: 'Выделения из носа', description: 'Описание 555555'},
+]
+
+symptoms.each do |params|
+  Symptom.create!(params)
+end
+
 clinics = [
     {title: 'Медлайн', phone: '1111111111', address: 'Невский просп., д. 2', email: 'clinic.1.@clinic.com'},
     {title: 'АЦЗ', phone: '2222222222', address: 'ул. Широкая, д. 15', email: 'clinic.2.@clinic.com'},
