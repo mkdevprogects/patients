@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :illnesses, :home, :clinics, :doctors, only: [:index]
+  resources :illnesses, :home, :clinics, :doctors, :specializations, only: [:index]
+
+  resources :specializations do
+    resources :doctors, only: [:index]
+  end
 
   devise_for :patient, controllers: {
       sessions: 'patient/sessions'

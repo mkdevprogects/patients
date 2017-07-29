@@ -1,0 +1,8 @@
+<h1>Специализации</h1>
+<div class="list-group">
+  <% @specializations.each do |spec| %>
+      <a class="list-group-item">
+        <%= spec.title %>
+      </a>
+  <% end %>
+</div>
