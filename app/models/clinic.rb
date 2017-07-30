@@ -2,6 +2,6 @@ class Clinic < ActiveRecord::Base
   has_many :practices
   has_many :doctors, through: :practices
 
-  validates :email, presence: true
-  validates :email, uniqueness: true
+  validates :title, presence: true
+  validates :email, presence: true, uniqueness: true
 end

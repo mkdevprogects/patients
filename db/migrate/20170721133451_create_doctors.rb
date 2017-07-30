@@ -1,11 +1,11 @@
 class CreateDoctors < ActiveRecord::Migration
   def change
     create_table :doctors do |t|
-      t.string :name
-      t.string :surname
+      t.string :name, null: false
+      t.string :surname, null: false
       t.string :patronymic
       t.string :phone
-      t.string :email
+      t.string :email, null: false, uniq: true
 
       t.timestamps null: false
     end

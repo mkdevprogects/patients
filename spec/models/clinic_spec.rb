@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Clinic, type: :model do
+  it { is_expected.to validate_presence_of(:title) }
+
   context 'валидация email клиники' do
     it 'поле email должно быть заполнено' do
       is_expected.to validate_presence_of(:email)
