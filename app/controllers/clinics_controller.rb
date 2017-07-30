@@ -1,5 +1,6 @@
 class ClinicsController < BaseController
   def index
+    @clinics = Clinic.all
   end
 
   def show
