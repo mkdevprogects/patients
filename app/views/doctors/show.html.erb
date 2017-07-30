@@ -10,17 +10,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><%= @doctor.specializations.map {|s| s.title}.join(', ') %></td>
-        <td>
-          <% if @doctor.grades.nil? %>
-              Врач
-          <% else %>
-              <%= @doctor.grades.first.title %>
-          <% end%>
-        </td>
-        <td>
-          <%= @doctor.clinics.map {|c| c.title}.join(', ') %>
-        </td>
+        <td><%= @doctor.specializations_title %></td>
+        <td><%= @doctor.get_grades %></td>
+        <td><%= @doctor.get_clinics %></td>
       </tr>
     </tbody>
   </table>
