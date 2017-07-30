@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :illnesses, :home, :clinics, :specializations, only: [:index]
-  resources :doctors, only: [:index, :show]
+  resources :illnesses, :home, :specializations, only: [:index]
+  resources :doctors,:clinics, only: [:index, :show]
 
   resources :specializations do
     scope module: :specializations do

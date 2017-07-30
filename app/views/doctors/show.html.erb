@@ -1,9 +1,8 @@
 <div class="panel panel-default">
-  <div class="panel-heading">Врачи</div>
+  <div class="panel-heading"><%= @doctor.surname %> <%= @doctor.name %></div>
   <table class="table">
     <thead>
     <tr>
-      <th>Имя</th>
       <th>Специализация</th>
       <th>Квалификация</th>
       <th>Места приема</th>
@@ -11,7 +10,6 @@
     </thead>
     <tbody>
       <tr>
-        <td><%= @doctor.surname %> <%= @doctor.name %></td>
         <td><%= @doctor.specializations.map {|s| s.title}.join(', ') %></td>
         <td>
           <% if @doctor.grades.nil? %>
