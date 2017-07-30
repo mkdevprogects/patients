@@ -1,20 +1,11 @@
 class DoctorDecorator < Draper::Decorator
   delegate_all
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
-
   def specializations_title
     object.specializations.map {|s| s.title}.join(', ')
   end
 
-  def get_grade
+  def grade
     if object.grades.nil?
       ' Врач'
     else
@@ -22,7 +13,7 @@ class DoctorDecorator < Draper::Decorator
     end
   end
   
-  def get_grades
+  def grades
     if object.grades.nil?
     ' Врач'
     else
@@ -30,8 +21,7 @@ class DoctorDecorator < Draper::Decorator
     end
   end
 
-  def get_clinics
+  def clinics
     object.clinics.map {|c| c.title}.join(', ')
   end
-
 end

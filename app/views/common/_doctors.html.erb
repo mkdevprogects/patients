@@ -15,14 +15,10 @@
           <td><%=	link_to "#{doctor.surname} #{doctor.name}", doctor_path(doctor.id) %></td>
           <td><%= doctor.specializations.map {|s| s.title}.join(', ') %></td>
           <td>
-            <% if doctor.grades.nil? %>
-                Врач
-            <% else %>
-                <%= doctor.grades.first.title %>
-            <% end%>
+            <%= doctor.grade %>
           </td>
           <td>
-            <%= doctor.clinics.map {|c| c.title}.join(', ') %>
+            <%= doctor.clinics %>
           </td>
         </tr>
     <% end %>
