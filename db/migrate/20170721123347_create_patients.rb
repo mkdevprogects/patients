@@ -5,9 +5,9 @@ class CreatePatients < ActiveRecord::Migration
       t.string :surname
       t.string :patronymic
       t.string :phone
-      t.string :email
+      t.string :email, null: false, uniq: true
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

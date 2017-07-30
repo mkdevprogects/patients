@@ -14,16 +14,16 @@
 ActiveRecord::Schema.define(version: 20170729143215) do
 
   create_table "analyses", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",      null: false
     t.string   "conclusion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "clinics", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",      null: false
     t.string   "phone"
-    t.string   "email"
+    t.string   "email",      null: false
     t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,11 +40,11 @@ ActiveRecord::Schema.define(version: 20170729143215) do
   end
 
   create_table "doctors", force: :cascade do |t|
-    t.string   "name"
-    t.string   "surname"
+    t.string   "name",       null: false
+    t.string   "surname",    null: false
     t.string   "patronymic"
     t.string   "phone"
-    t.string   "email"
+    t.string   "email",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,9 +70,9 @@ ActiveRecord::Schema.define(version: 20170729143215) do
     t.string   "surname"
     t.string   "patronymic"
     t.string   "phone"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "email",                               null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -104,12 +104,12 @@ ActiveRecord::Schema.define(version: 20170729143215) do
   end
 
   create_table "symptoms", force: :cascade do |t|
-    t.string "title"
+    t.string "title",       null: false
     t.string "description"
   end
 
   create_table "visits", force: :cascade do |t|
-    t.datetime "date_time"
+    t.datetime "date_time",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

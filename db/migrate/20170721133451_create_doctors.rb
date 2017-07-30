@@ -5,7 +5,7 @@ class CreateDoctors < ActiveRecord::Migration
       t.string :surname, null: false
       t.string :patronymic
       t.string :phone
-      t.string :email, null: false
+      t.string :email, null: false, uniq: true
 
       t.timestamps null: false
     end
