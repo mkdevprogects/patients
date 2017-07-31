@@ -2,9 +2,7 @@
   <div class="panel-heading">Клиники</div>
   <ul>
     <%	@clinics.each do |clinic| %>
-        <li>
-          <%=	link_to clinic.title, clinic_path(clinic.id) %>
-        </li>
+        <li><%=	link_to clinic.title, clinic_path(clinic.id) %></li>
     <%	end %>
   </ul>
 </div>

@@ -2,7 +2,7 @@ class DoctorDecorator < Draper::Decorator
   delegate_all
 
   def specializations_title
-    object.specializations.map {|s| s.title}.join(', ')
+    titles_list object.specializations
   end
 
   def grade
@@ -17,11 +17,18 @@ class DoctorDecorator < Draper::Decorator
     if object.grades.nil?
     ' Врач'
     else
-      object.grades.map {|s| s.title}.join(', ')
+      titles_list object.grades
     end
   end
 
   def clinics
-    object.clinics.map {|c| c.title}.join(', ')
+    titles_list object.clinics
+  end
+
+
+  private
+
+  def titles_list relations
+    relations.map(&:title).join(', ')
   end
 end
