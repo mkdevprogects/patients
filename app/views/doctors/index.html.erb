@@ -1,34 +1,4 @@
-<div class="panel panel-default">
-  <div class="panel-heading">Врачи</div>
-  <table class="table">
-    <thead>
-    <tr>
-      <th>Имя</th>
-      <th>Специализация</th>
-      <th>Квалификация</th>
-      <th>Места приема</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @doctors.each do |doctor| %>
-      <tr>
-        <td><%= doctor.surname %> <%= doctor.name %></td>
-        <td><%= doctor.specializations.map {|s| s.title}.join(', ') %></td>
-        <td>
-          <% if doctor.grades.nil? %>
-              Врач
-          <% else %>
-            <%= doctor.grades.first.title %>
-          <% end%>
-        </td>
-        <td>
-          <%= doctor.clinics.map {|c| c.title}.join(', ') %>
-        </td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
+<%= render 'common/doctors' %>
 
 <%= link_to 'Специализации', specializations_path, class: 'btn btn-primary btn-m' %>
 

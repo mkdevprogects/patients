@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><%= @doctor.surname %> <%= @doctor.name %></div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Специализация</th>
+      <th>Квалификация</th>
+      <th>Места приема</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @doctor.specializations_title %></td>
+        <td><%= @doctor.grades %></td>
+        <td><%= @doctor.clinics %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
