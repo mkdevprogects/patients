@@ -2,7 +2,7 @@ class DoctorDecorator < Draper::Decorator
   delegate_all
 
   def specializations_title
-    titles_list object.specializations
+    titles_list(object.specializations)
   end
 
   def grade
@@ -17,18 +17,18 @@ class DoctorDecorator < Draper::Decorator
     if object.grades.nil?
     ' Врач'
     else
-      titles_list object.grades
+      titles_list(object.grades)
     end
   end
 
   def clinics
-    titles_list object.clinics
+    titles_list(object.clinics)
   end
 
 
   private
 
-  def titles_list relations
+  def titles_list(relations)
     relations.map(&:title).join(', ')
   end
 end
