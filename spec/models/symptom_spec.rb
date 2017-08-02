@@ -6,4 +6,6 @@ RSpec.describe Symptom, type: :model do
   it 'один симптом может принадлежать разным болезням' do
     is_expected.to have_many(:illnesses)
   end
+
+  it { is_expected.to have_many(:diseases) }
 end
