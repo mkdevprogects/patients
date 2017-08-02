@@ -1,1 +1,6 @@
 <h1>Болезни</h1>
+<div  class="list-group">
+  <% @diseases.each do |disease| %>
+      <%= link_to disease.title, disease_path(disease.id), class: "list-group-item" %>
+  <% end %>
+</div>
