@@ -4,4 +4,6 @@ class Illness < ActiveRecord::Base
 
   has_many :illness_symptoms
   has_many :symptoms, through: :illness_symptoms
+
+  has_many :visits
 end
