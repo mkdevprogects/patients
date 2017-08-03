@@ -6,4 +6,5 @@ RSpec.describe Illness, type: :model do
   it { is_expected.to have_many(:symptoms) }
   it { is_expected.to have_many(:visits) }
   it { is_expected.to have_many(:prescriptions) }
+  it { is_expected.to have_many(:diagnoses) }
 end

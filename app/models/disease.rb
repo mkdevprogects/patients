@@ -5,6 +5,9 @@ class Disease < ActiveRecord::Base
   has_many :disease_specializations
   has_many :specializations, through: :disease_specializations
 
+  has_many :diagnoses
+  has_many :illnesses, through: :diagnoses
+
   validates :title, presence: true
   validates :icd_code, uniqueness: true
 

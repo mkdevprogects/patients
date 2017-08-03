@@ -9,6 +9,9 @@ class Illness < ActiveRecord::Base
 
   has_many :prescriptions
 
+  has_many :diagnoses
+  has_many :diseases, through: :diagnoses
+
   # def clinics
   #   specializations.reduce([]) do |result, spec|
   #     result << spec_clinics(spec)
