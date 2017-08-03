@@ -1,0 +1,23 @@
+<p>Начало болезни: <%=	 @illness.created_at %></p>
+<p>Лечащий врач: <%=	 @illness.doctor.surname %> <%=	 @illness.doctor.name %></p>
+<div>
+  Визиты:
+  <ul>
+    <% @illness.visits.each do |visit| %>
+    <li><%=	visit.inspect %></li>
+    <% end %>
+  </ul>
+</div>
+<div> Симптомы:
+  <ul>
+    <%	@illness.symptoms.each  do |symptom| %>
+      <%=	symptom.title %>
+      <%=	symptom.created_at %>
+    <%	end %>
+  </ul>
+</div>
+<div> Назначения:
+  <ul>
+
+  </ul>
+</div>

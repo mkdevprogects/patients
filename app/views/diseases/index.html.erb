@@ -1,6 +1,19 @@
-<h1>Болезни</h1>
-<div  class="list-group">
-  <% @diseases.each do |disease| %>
-      <%= link_to disease.title, disease_path(disease.id), class: "list-group-item" %>
-  <% end %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <ul class="nav nav-pills">
+      <li role="presentation">
+        <%= link_to 'Болезни', diseases_path %>
+      </li>
+      <li role="presentation">
+        <%= link_to 'Мои болезни', illnesses_path %>
+      </li>
+    </ul>
+  </div>
+
+  <div  class="list-group">
+    <% @diseases.each do |disease| %>
+        <%= link_to disease.title, disease_path(disease.id), class: "list-group-item" %>
+    <% end %>
+  </div>
+
 </div>
