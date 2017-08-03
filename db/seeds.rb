@@ -766,3 +766,51 @@ patients = [
 patients.each do |params|
   Patient.create!(params)
 end
+
+prescriptions = [
+    { recommendations: Faker::Matz.quote },
+    { recommendations: Faker::Matz.quote },
+    { recommendations: Faker::Matz.quote },
+    { recommendations: Faker::Matz.quote },
+    { recommendations: Faker::Matz.quote }
+]
+
+prescriptions.each do |params|
+    Prescription.create!(params)
+end
+
+visits = [
+    {
+        date_time: '2017-08-03 11:44:23 UTC',
+        doctor_id: Doctor.find(1),
+        clinic_id: Clinic.find(1),
+    },
+    {
+        date_time: '2017-07-03 11:44:23 UTC',
+        doctor_id: Doctor.find(1),
+        clinic_id: Clinic.find(1),
+    },
+    {
+        date_time: '2017-07-13 11:44:23 UTC',
+        doctor_id: Doctor.find(1),
+        clinic_id: Clinic.find(1),
+    }
+]
+
+visits.each do |params|
+    Visit.create!(params)
+end
+
+illnesses = [
+    {
+        patient_id: Patient.find(1),
+        doctor_id: Doctor.find(1),
+        symptoms: [Symptom.find(1), Symptom.find(2)],
+        visits: [Visit.find(1), Visit.find(2), Visit.find(3)],
+        prescriptions: [Prescription.find(1), Prescription.find(2),Prescription.find(3), Prescription.find(4)]
+    }
+]
+
+illnesses.each do |params|
+  Illness.create!(params)
+end
