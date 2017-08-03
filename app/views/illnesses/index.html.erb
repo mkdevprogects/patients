@@ -1,8 +1,19 @@
-<h1>Мои болезни</h1>
-<ul>
-<% current_patient.illnesses.each do |illness| %>
-    <li>
-      <%=	link_to illness.inspect, illness_path(illness.id) %>
-    </li>
-<% end %>
-</ul>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <ul class="nav nav-pills">
+      <li role="presentation">
+        <%= link_to 'Болезни', diseases_path %>
+      </li>
+      <li role="presentation" class="active">
+        <%= link_to 'Мои болезни', illnesses_path %>
+      </li>
+    </ul>
+  </div>
+
+  <div  class="list-group">
+    <% current_patient.illnesses.each do |illness| %>
+      <%=	link_to illness.inspect, illness_path(illness.id), class: "list-group-item" %>
+    <% end %>
+  </div>
+
+</div>

@@ -1,23 +1,55 @@
-<p>Начало болезни: <%=	 @illness.created_at %></p>
-<p>Лечащий врач: <%=	 @illness.doctor.surname %> <%=	 @illness.doctor.name %></p>
-<div>
-  Визиты:
-  <ul>
-    <% @illness.visits.each do |visit| %>
-    <li><%=	visit.inspect %></li>
-    <% end %>
-  </ul>
-</div>
-<div> Симптомы:
-  <ul>
-    <%	@illness.symptoms.each  do |symptom| %>
-      <%=	symptom.title %>
-      <%=	symptom.created_at %>
-    <%	end %>
-  </ul>
-</div>
-<div> Назначения:
-  <ul>
+<div class="panel panel-default">
+  <div class="panel-heading">Заголовок болезни</div>
+  <table class="table">
+    <tbody>
+    <tr>
+      <th style="width: 10%">Начало болезни:</th>
+      <td>
+        <%= @illness.created_at %>
+      </td>
+    </tr>
+    <tr>
+      <th>Лечащий врач:</th>
+      <td>
+        <%= @illness.doctor.surname %>
+        <%= @illness.doctor.name %>
+      </td>
+    </tr>
+    <tr>
+      <th>Клиника:</th>
+      <td>
 
-  </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Визиты:</th>
+      <td>
+        <ul>
+          <% @illness.visits.each do |visit| %>
+              <li><%=	visit.inspect %></li>
+          <% end %>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Симптомы:</th>
+      <td>
+        <ul>
+          <%	@illness.symptoms.each  do |symptom| %>
+              <%=	symptom.title %>
+              <%=	symptom.created_at %>
+          <%	end %>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Назначения:</th>
+      <td>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
+
+<%= link_to 'Назад', illnesses_path, class: 'btn btn-primary btn-m' %>
