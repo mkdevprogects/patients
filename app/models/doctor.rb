@@ -13,6 +13,8 @@ class Doctor < ActiveRecord::Base
 
   has_many :visits
 
+  has_many :prescriptions
+
   validates :name, :surname, presence: true
   validates :email, presence: true, uniqueness: true
 end
