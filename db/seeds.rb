@@ -1,17 +1,4 @@
-specializations = [
-    {title: 'Терапевт', code: 'therap'}, {title: 'Педиатр', code: 'pediatr'},
-    {title: 'Отоларинголог', code: 'otolaryngolog'}, {title: 'Хирург', code: 'surg'},
-    {title: 'Невропатолог', code: 'neuropatholog'}, {title: 'Психолог', code: 'psycholog'},
-    {title: 'Ревматолог', code: 'rheumatolog'}, {title: 'Аллерголог', code: 'allerg'},
-    {title: 'Кардиолог', code: 'cardio'}, {title: 'Стоматолог', code: 'dent'},
-    {title: 'Подиатр', code: 'podiatr'}, {title: 'Ортопед', code: 'orthoped'},
-    {title: 'Офтальмолог', code: 'ophthalmolog'}, {title: 'Гинеколог', code: 'gynecolog'},
-    {title: 'Андролог', code: 'androlog'}, {title: 'Флеболог', code: 'phlebolog'}
-]
-
-specializations.each do |params|
-  Specialization.create!(params)
-end
+Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each { |seed| load seed }
 
 symptoms = [
     {title: 'Головная боль', description: 'Описание 11111'},
@@ -803,8 +790,8 @@ end
 
 illnesses = [
     {
-        patient_id: Patient.find(1),
-        doctor_id: Doctor.find(1),
+        patient_id: Patient.find(1).id,
+        doctor_id: Doctor.find(1).id,
         symptoms: [Symptom.find(1), Symptom.find(2)],
         visits: [Visit.find(1), Visit.find(2), Visit.find(3)],
         prescriptions: [Prescription.find(1), Prescription.find(2),Prescription.find(3), Prescription.find(4)]
