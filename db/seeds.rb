@@ -1,3 +1,5 @@
+Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each { |seed| load seed }
+
 specializations = [
     {title: 'Терапевт', code: 'therap'}, {title: 'Педиатр', code: 'pediatr'},
     {title: 'Отоларинголог', code: 'otolaryngolog'}, {title: 'Хирург', code: 'surg'},
@@ -751,16 +753,16 @@ doctors.each do |params|
 end
 
 patients = [
-    {name: 'Илья', surname: 'Гордиенко', patronymic: 'Арсеньевич', phone: '11111111111', email: 'patient.1.@patient.com', password: '123123',
-    doctors: [Doctor.first, Doctor.find(3), Doctor.last]},
-    {name: 'Кирилл', surname: 'Семкин', patronymic: 'Сергеевич', phone: '11111111112', email: 'patient.2.@patient.com', password: '123123',
-     doctors: [Doctor.find(1), Doctor.last]},
-    {name: 'Олег', surname: 'Осташков', patronymic: 'Олегович', phone: '11111111113', email: 'patient.3.@patient.com', password: '123123',
-     doctors: [Doctor.find(2), Doctor.last]},
-    {name: 'Константин', surname: 'Жданов', patronymic: 'Александрович', phone: '11111111114', email: 'patient.4.@patient.com', password: '123123',
-     doctors: [Doctor.find(3), Doctor.last]},
-    {name: 'Роман', surname: 'Лапин', patronymic: 'Евгеньевич', phone: '11111111115', email: 'patient.5.@patient.com', password: '123123',
-     doctors: [Doctor.find(2), Doctor.last]},
+    {name: 'Илья', surname: 'Гордиенко', patronymic: 'Арсеньевич',
+     phone: '11111111111', email: 'patient.1.@patient.com', password: '123123'},
+    {name: 'Кирилл', surname: 'Семкин', patronymic: 'Сергеевич',
+     phone: '11111111112', email: 'patient.2.@patient.com', password: '123123'},
+    {name: 'Олег', surname: 'Осташков', patronymic: 'Олегович',
+     phone: '11111111113', email: 'patient.3.@patient.com', password: '123123'},
+    {name: 'Константин', surname: 'Жданов', patronymic: 'Александрович',
+     phone: '11111111114', email: 'patient.4.@patient.com', password: '123123'},
+    {name: 'Роман', surname: 'Лапин', patronymic: 'Евгеньевич',
+     phone: '11111111115', email: 'patient.5.@patient.com', password: '123123'}
 ]
 
 patients.each do |params|
@@ -768,6 +770,11 @@ patients.each do |params|
 end
 
 prescriptions = [
+    { recommendations: Faker::Matz.quote },
+    { recommendations: Faker::Matz.quote },
+    { recommendations: Faker::Matz.quote },
+    { recommendations: Faker::Matz.quote },
+    { recommendations: Faker::Matz.quote },
     { recommendations: Faker::Matz.quote },
     { recommendations: Faker::Matz.quote },
     { recommendations: Faker::Matz.quote },
@@ -782,18 +789,33 @@ end
 visits = [
     {
         date_time: '2017-08-03 11:44:23 UTC',
-        doctor_id: Doctor.find(1),
-        clinic_id: Clinic.find(1),
+        doctor_id: Doctor.find(1).id,
+        clinic_id: Clinic.find(1).id,
     },
     {
         date_time: '2017-07-03 11:44:23 UTC',
-        doctor_id: Doctor.find(1),
-        clinic_id: Clinic.find(1),
+        doctor_id: Doctor.find(1).id,
+        clinic_id: Clinic.find(1).id,
     },
     {
         date_time: '2017-07-13 11:44:23 UTC',
-        doctor_id: Doctor.find(1),
-        clinic_id: Clinic.find(1),
+        doctor_id: Doctor.find(1).id,
+        clinic_id: Clinic.find(1).id,
+    },
+    {
+        date_time: '2017-08-01 11:44:23 UTC',
+        doctor_id: Doctor.find(2).id,
+        clinic_id: Clinic.last.id,
+    },
+    {
+        date_time: '2017-05-03 11:44:23 UTC',
+        doctor_id: Doctor.find(2).id,
+        clinic_id: Clinic.last.id,
+    },
+    {
+        date_time: '2017-07-13 11:44:23 UTC',
+        doctor_id: Doctor.find(2).id,
+        clinic_id: Clinic.last.id,
     }
 ]
 
@@ -803,11 +825,20 @@ end
 
 illnesses = [
     {
-        patient_id: Patient.find(1),
-        doctor_id: Doctor.find(1),
+        patient_id: Patient.find(1).id,
+        doctor_id: Doctor.find(1).id,
         symptoms: [Symptom.find(1), Symptom.find(2)],
         visits: [Visit.find(1), Visit.find(2), Visit.find(3)],
-        prescriptions: [Prescription.find(1), Prescription.find(2),Prescription.find(3), Prescription.find(4)]
+        prescriptions: [Prescription.find(1), Prescription.find(2),Prescription.find(3), Prescription.find(4)],
+        diseases: [Disease.find(1)]
+    },
+    {
+        patient_id: Patient.find(1).id,
+        doctor_id: Doctor.find(2).id,
+        symptoms: [Symptom.find(1), Symptom.find(2)],
+        visits: [Visit.find(4), Visit.find(5), Visit.find(6)],
+        prescriptions: [Prescription.find(5), Prescription.find(6),Prescription.find(7), Prescription.find(8)],
+        diseases: [Disease.find(32)]
     }
 ]
 

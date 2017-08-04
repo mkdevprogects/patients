@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-  <div class="panel-heading">Заголовок болезни</div>
+  <div class="panel-heading"><%=	@illness.diseases.first.title %></div>
   <table class="table">
     <tbody>
     <tr>
@@ -11,41 +11,78 @@
     <tr>
       <th>Лечащий врач:</th>
       <td>
-        <%= @illness.doctor.surname %>
-        <%= @illness.doctor.name %>
+        <%= link_to "#{@illness.doctor.surname} #{@illness.doctor.name}", doctor_path(id: @illness.doctor.id)%>
       </td>
     </tr>
     <tr>
       <th>Клиника:</th>
       <td>
-
+        <%= link_to @illness.visits.last.clinic.title, clinic_path(id: @illness.visits.last.clinic.id)%>
       </td>
     </tr>
     <tr>
       <th>Визиты:</th>
       <td>
-        <ul>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Врач</th>
+            <th>Клиника</th>
+            <th>Дата визита</th>
+          </tr>
+          </thead>
+          <tbody>
           <% @illness.visits.each do |visit| %>
-              <li><%=	visit.inspect %></li>
+          <tr>
+            <td style="width: 15%"><%=	visit.doctor.surname %> <%=	visit.doctor.name %></td>
+            <td style="width: 15%"><%= visit.clinic.title %></td>
+            <td><%= visit.date_time %></td>
+          </tr>
           <% end %>
-        </ul>
+          </tbody>
+        </table>
       </td>
     </tr>
     <tr>
       <th>Симптомы:</th>
       <td>
-        <ul>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Симптом</th>
+            <th>Дата постановки симптома</th>
+          </tr>
+          </thead>
+          <tbody>
           <%	@illness.symptoms.each  do |symptom| %>
-              <%=	symptom.title %>
-              <%=	symptom.created_at %>
+          <tr>
+            <td style="width: 15%"> <%=	symptom.title %></td>
+            <td>symptom.illness_symptoms[index].created_at</td>
+          </tr>
           <%	end %>
-        </ul>
+          </tbody>
+        </table>
       </td>
     </tr>
     <tr>
       <th>Назначения:</th>
       <td>
-
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Дата выдачи рецепта</th>
+            <th>Рецепт</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @illness.prescriptions.each do |prescription| %>
+              <tr>
+                <td style="width: 20%"><%=	prescription.created_at %></td>
+                <td style="width: auto"> <%=	prescription.recommendations %></td>
+              </tr>
+          <%	end %>
+          </tbody>
+        </table>
       </td>
     </tr>
     </tbody>
