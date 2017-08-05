@@ -11,6 +11,6 @@ class ClinicsController < BaseController
   private
 
   def set_clinic
-    @clinic = Clinic.find(params[:id])
+    @clinic ||= Clinic.find(params[:id])
   end
 end
