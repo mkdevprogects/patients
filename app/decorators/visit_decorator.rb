@@ -1,9 +1,9 @@
 class VisitDecorator < Draper::Decorator
-  decorates_finders
+  include HasHumanDate
+
   delegate_all
 
-  def created_at
-    created_at.strftime("%d - %m - %Y")
+  def date_time
+    date_time.strftime("%d - %m - %Y")
   end
-
 end

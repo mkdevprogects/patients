@@ -3,6 +3,6 @@ class IllnessesController < BaseController
   end
 
   def show
-    @illness = Illness.find(params[:id])
+    @illness = Illness.find(params[:id]).decorate
   end
 end

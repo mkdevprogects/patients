@@ -1,8 +1,5 @@
 class SymptomDecorator < Draper::Decorator
-  decorates_finders
-  delegate_all
+  include HasHumanDate
 
-  def created_at
-    created_at.strftime("%d - %m - %Y")
-  end
+  delegate_all
 end
