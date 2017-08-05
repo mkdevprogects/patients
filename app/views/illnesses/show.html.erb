@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><%=	@illness.diseases.first.title %></div>
+  <table class="table">
+    <tbody>
+    <tr>
+      <th style="width: 10%">Начало болезни:</th>
+      <td>
+        <%= @illness.created_at %>
+      </td>
+    </tr>
+    <tr>
+      <th>Лечащий врач:</th>
+      <td>
+        <%= link_to "#{@illness.doctor.surname} #{@illness.doctor.name}", doctor_path(id: @illness.doctor.id)%>
+      </td>
+    </tr>
+    <tr>
+      <th>Клиника:</th>
+      <td>
+        <%= link_to @illness.clinic.title, clinic_path(id: @illness.clinic.id)%>
+      </td>
+    </tr>
+    <%=	render 'visits', visits: @illness.visits %>
+    <%=	render 'symptoms', symptoms: @illness.symptoms %>
+    <%=	render 'prescriptions', prescription: @illness.prescriptions %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to 'Назад', illnesses_path, class: 'btn btn-primary btn-m' %>

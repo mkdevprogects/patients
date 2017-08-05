@@ -2,20 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Clinic, type: :model do
   it { is_expected.to validate_presence_of(:title) }
+  it { is_expected.to validate_presence_of(:email) }
 
-  context 'валидация email клиники' do
-    it 'поле email должно быть заполнено' do
-      is_expected.to validate_presence_of(:email)
-    end
+  it { is_expected.to validate_uniqueness_of(:email) }
 
-    it 'email должен быть уникальным' do
-      is_expected.to validate_uniqueness_of(:email)
-    end
-  end
+  it { is_expected.to have_many(:doctors) }
+  it { is_expected.to have_many(:visits) }
 
-  context 'наличие у клиники, работающих в ней врачей' do
-    it 'в клинике может работать много врачей' do
-      is_expected.to have_many(:doctors)
-    end
-  end
 end

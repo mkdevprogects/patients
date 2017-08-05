@@ -11,6 +11,10 @@ class Doctor < ActiveRecord::Base
   has_many :doctor_grades
   has_many :grades, through: :doctor_grades
 
+  has_many :visits
+
+  has_many :prescriptions
+
   validates :name, :surname, presence: true
   validates :email, presence: true, uniqueness: true
 end

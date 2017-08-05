@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170801194914) do
+ActiveRecord::Schema.define(version: 20170804220101) do
 
   create_table "analyses", force: :cascade do |t|
     t.string   "title",      null: false
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 20170801194914) do
     t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "diagnoses", force: :cascade do |t|
+    t.integer  "disease_id"
+    t.integer  "illness_id"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "disease_specializations", force: :cascade do |t|
@@ -65,6 +73,13 @@ ActiveRecord::Schema.define(version: 20170801194914) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "drugs", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "grades", force: :cascade do |t|
     t.string "title"
   end
@@ -77,8 +92,10 @@ ActiveRecord::Schema.define(version: 20170801194914) do
   end
 
   create_table "illnesses", force: :cascade do |t|
-    t.integer "patient_id"
-    t.integer "doctor_id"
+    t.integer  "patient_id"
+    t.integer  "doctor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -112,6 +129,8 @@ ActiveRecord::Schema.define(version: 20170801194914) do
     t.string   "recommendations"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "illness_id"
+    t.integer  "drug_id"
   end
 
   create_table "specializations", force: :cascade do |t|
@@ -128,6 +147,9 @@ ActiveRecord::Schema.define(version: 20170801194914) do
     t.datetime "date_time",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "doctor_id"
+    t.integer  "illness_id"
+    t.integer  "clinic_id"
   end
 
 end
