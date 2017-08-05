@@ -4,6 +4,6 @@ class VisitDecorator < Draper::Decorator
   delegate_all
 
   def date_time
-    date_time.strftime("%d - %m - %Y")
+    object.date_time.strftime("%d - %m - %Y")
   end
 end

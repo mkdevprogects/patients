@@ -1,0 +1,26 @@
+<tr>
+  <th>Визиты:</th>
+  <td>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Врач</th>
+        <th>Клиника</th>
+        <th>Дата визита</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% visits.each do |visit| %>
+          <tr>
+            <td style="width: 15%"><%=	visit.doctor_surname %> <%=	visit.doctor_name %></td>
+            <td style="width: 15%"><%= visit.clinic_title %></td>
+            <td><%= visit.date_time %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </td>
+</tr>
+
+
+

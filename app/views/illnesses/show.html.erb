@@ -20,73 +20,9 @@
         <%= link_to @illness.clinic.title, clinic_path(id: @illness.clinic.id)%>
       </td>
     </tr>
-    <tr>
-      <th>Визиты:</th>
-      <td>
-        <table class="table">
-          <thead>
-          <tr>
-            <th>Врач</th>
-            <th>Клиника</th>
-            <th>Дата визита</th>
-          </tr>
-          </thead>
-          <tbody>
-          <% @illness.visits.each do |visit| %>
-          <tr>
-            <td style="width: 15%"><%=	visit.doctor_surname %> <%=	visit.doctor_name %></td>
-            <td style="width: 15%"><%= visit.clinic_title %></td>
-            <td><%= visit.date_time %></td>
-          </tr>
-          <% end %>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <th>Симптомы:</th>
-      <td>
-        <table class="table">
-          <thead>
-          <tr>
-            <th>Симптом</th>
-            <th>Дата постановки симптома</th>
-          </tr>
-          </thead>
-          <tbody>
-          <%	@illness.symptoms.each  do |symptom| %>
-          <tr>
-            <td style="width: 15%"> <%=	symptom.title %></td>
-            <td><%=	symptom.created_at %></td>
-          </tr>
-          <%	end %>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <th>Назначения:</th>
-      <td>
-        <table class="table">
-          <thead>
-          <tr>
-            <th>Дата выдачи рецепта</th>
-            <th>Рецепт</th>
-            <th>Рекомендации</th>
-          </tr>
-          </thead>
-          <tbody>
-          <% @illness.prescriptions.each do |prescription| %>
-              <tr>
-                <td style="width: 15%"><%=	prescription.created_at %></td>
-                <td style="width: 20%"> <%=	prescription.title %></td>
-                <td style="width: auto"> <%=	prescription.recommendations %></td>
-              </tr>
-          <%	end %>
-          </tbody>
-        </table>
-      </td>
-    </tr>
+    <%=	render 'visits', visits: @illness.visits %>
+    <%=	render 'symptoms', symptoms: @illness.symptoms %>
+    <%=	render 'prescriptions', prescription: @illness.prescriptions %>
     </tbody>
   </table>
 </div>

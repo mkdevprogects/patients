@@ -1,0 +1,24 @@
+<tr>
+  <th>Назначения:</th>
+  <td>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Дата выдачи рецепта</th>
+        <th>Рецепт</th>
+        <th>Рекомендации</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @illness.prescriptions.each do |prescription| %>
+          <tr>
+            <td style="width: 15%"><%=	prescription.created_at %></td>
+            <td style="width: 20%"> <%=	prescription.title %></td>
+            <td style="width: auto"> <%=	prescription.recommendations %></td>
+          </tr>
+      <%	end %>
+      </tbody>
+    </table>
+  </td>
+</tr>
+
