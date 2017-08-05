@@ -12,22 +12,7 @@ class Illness < ActiveRecord::Base
   has_many :diagnoses
   has_many :diseases, through: :diagnoses
 
-  # def clinics
-  #   specializations.reduce([]) do |result, spec|
-  #     result << spec_clinics(spec)
-  #   end.flatten.uniq
-  # end
-  #
-  #
-  # private
-  #
-  # def spec_clinics(spec)
-  #   spec.doctors.reduce([]) do |result, doctor|
-  #     result << doctor.clinics
-  #   end
-  # end
-
-  def clinics
-
+  def clinic
+    visits.last.clinic
   end
 end

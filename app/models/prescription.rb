@@ -5,4 +5,8 @@ class Prescription < ActiveRecord::Base
   belongs_to :drug
 
   validates :drug_id, presence: true
+
+  def title
+    drug.title
+  end
 end

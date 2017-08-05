@@ -7,4 +7,8 @@ class Symptom < ActiveRecord::Base
   has_many :diseases, through: :disease_symptoms
 
   validates :title, presence: true
+
+  def created_at
+    illness_symptoms.find(self.id).created_at
+  end
 end

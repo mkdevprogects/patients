@@ -17,7 +17,7 @@
     <tr>
       <th>Клиника:</th>
       <td>
-        <%= link_to @illness.visits.last.clinic.title, clinic_path(id: @illness.visits.last.clinic.id)%>
+        <%= link_to @illness.clinic.title, clinic_path(id: @illness.clinic.id)%>
       </td>
     </tr>
     <tr>
@@ -34,8 +34,8 @@
           <tbody>
           <% @illness.visits.each do |visit| %>
           <tr>
-            <td style="width: 15%"><%=	visit.doctor.surname %> <%=	visit.doctor.name %></td>
-            <td style="width: 15%"><%= visit.clinic.title %></td>
+            <td style="width: 15%"><%=	visit.doctor_surname %> <%=	visit.doctor_name %></td>
+            <td style="width: 15%"><%= visit.clinic_title %></td>
             <td><%= visit.date_time %></td>
           </tr>
           <% end %>
@@ -57,7 +57,7 @@
           <%	@illness.symptoms.each  do |symptom| %>
           <tr>
             <td style="width: 15%"> <%=	symptom.title %></td>
-            <td>symptom.illness_symptoms[index].created_at</td>
+            <td><%=	symptom.created_at %></td>
           </tr>
           <%	end %>
           </tbody>
@@ -72,12 +72,14 @@
           <tr>
             <th>Дата выдачи рецепта</th>
             <th>Рецепт</th>
+            <th>Рекомендации</th>
           </tr>
           </thead>
           <tbody>
           <% @illness.prescriptions.each do |prescription| %>
               <tr>
-                <td style="width: 20%"><%=	prescription.created_at %></td>
+                <td style="width: 15%"><%=	prescription.created_at %></td>
+                <td style="width: 20%"> <%=	prescription.title %></td>
                 <td style="width: auto"> <%=	prescription.recommendations %></td>
               </tr>
           <%	end %>
