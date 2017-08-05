@@ -8,9 +8,8 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :patient, controllers: {
-      sessions: 'patient/sessions'
-  }
+  devise_for :patient
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
