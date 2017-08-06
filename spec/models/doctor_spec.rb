@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Doctor, type: :model do
+  subject { build(:doctor) }
+
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_presence_of(:surname) }
   it { is_expected.to validate_presence_of(:email) }
