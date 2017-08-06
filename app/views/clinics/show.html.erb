@@ -1,14 +1,14 @@
 <div class="panel panel-default">
-  <div class="panel-heading"><%=	@clinic.title %></div>
+  <div class="panel-heading"><%= @clinic.title %></div>
     <ul>Врачи клиники
-      <%	@clinic.doctors.each do |doctor| %>
+      <% @clinic.doctors.each do |doctor| %>
           <li>
             <div><%= doctor.surname %> <%= doctor.name %></div>
           </li>
       <%	end %>
     </ul>
     <ul>Специализации
-      <%	@clinic.specializations_titles.each do |spec| %>
+      <% @clinic.specializations_titles.each do |spec| %>
           <li><%= spec %></li>
     <% end %>
     </ul>

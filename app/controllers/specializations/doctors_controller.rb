@@ -3,7 +3,7 @@ module Specializations
     def index
       specialization = Specialization.find(params[:specialization_id])
       doctors = specialization.doctors
-      @doctors = Specializations::DoctorDecorator.decorate_collection(doctors)
+      @doctors = DoctorDecorator.decorate_collection(doctors)
       render 'specializations/doctors/index'
     end
   end

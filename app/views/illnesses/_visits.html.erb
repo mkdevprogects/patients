@@ -12,9 +12,9 @@
       <tbody>
       <% visits.each do |visit| %>
           <tr>
-            <td style="width: 15%"><%=	visit.doctor_surname %> <%=	visit.doctor_name %></td>
-            <td style="width: 15%"><%= visit.clinic_title %></td>
-            <td><%= visit.date_time %></td>
+            <td class="width_15"><%=	visit.doctor_surname %> <%=	visit.doctor_name %></td>
+            <td class="width_15"><%= visit.clinic_title %></td>
+            <td><%= visit.human_date_time %></td>
           </tr>
       <% end %>
       </tbody>

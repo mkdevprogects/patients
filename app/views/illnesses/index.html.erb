@@ -1,18 +1,9 @@
 <div class="panel panel-default">
-  <div class="panel-heading">
-    <ul class="nav nav-pills">
-      <li role="presentation">
-        <%= link_to 'Болезни', diseases_path %>
-      </li>
-      <li role="presentation" class="active">
-        <%= link_to 'Мои болезни', illnesses_path %>
-      </li>
-    </ul>
-  </div>
+  <%= render 'common/illness_diseases_menu' %>
 
   <div  class="list-group">
     <% current_patient.illnesses.each do |illness| %>
-      <%=	link_to illness.diseases.first.title, illness_path(illness.id), class: "list-group-item" %>
+      <%= link_to illness.diseases.first.title, illness_path(illness), class: "list-group-item" %>
     <% end %>
   </div>
 

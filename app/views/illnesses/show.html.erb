@@ -3,7 +3,7 @@
   <table class="table">
     <tbody>
     <tr>
-      <th style="width: 10%">Начало болезни:</th>
+      <th class="width_10">Начало болезни:</th>
       <td>
         <%= @illness.created_at %>
       </td>
@@ -11,7 +11,7 @@
     <tr>
       <th>Лечащий врач:</th>
       <td>
-        <%= link_to "#{@illness.doctor.surname} #{@illness.doctor.name}", doctor_path(id: @illness.doctor.id)%>
+        <%= link_to @illness.doctors_surname_name, doctor_path(id: @illness.doctor.id)%>
       </td>
     </tr>
     <tr>

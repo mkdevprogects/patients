@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+.width_10 {
+    width: 10%;
+}
+
+.width_15 {
+    width: 15%;
+}
+
+.width_20 {
+    width: 20%;
+}
+
+.width_auto {
+    width: auto;
+}
