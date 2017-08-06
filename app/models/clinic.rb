@@ -8,6 +8,6 @@ class Clinic < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
 
   def specializations_titles
-    Specialization.joins(doctors: [:clinics]).where("clinics.id=?", self.id).uniq
+    Specialization.joins(doctors: [:clinics]).where("clinics.id=?", self.id).pluck(:title).uniq
   end
 end
