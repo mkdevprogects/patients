@@ -8,12 +8,9 @@
       <%	end %>
     </ul>
     <ul>Специализации
-      <!--< % @clinic.specializations_titles.each do |item| %>-->
-      <!--<li>< %= item.inspect %></li>-->
-      <!--< % end %>-->
       <% @clinic.specializations_titles.each do |spec| %>
-          <li><%= spec %></li>
-       <% end %>
+          <li><%= spec.title %></li>
+      <% end %>
     </ul>
     <ul>Контактная информация
       <p>Телефон: <%= @clinic.phone %></p>
