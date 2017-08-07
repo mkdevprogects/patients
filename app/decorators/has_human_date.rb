@@ -7,6 +7,10 @@ module HasHumanDate
     date(object.date_time)
   end
 
+  def human_first_occurence_date
+    date(object.first_occurence_date)
+  end
+
   private
 
   def date date

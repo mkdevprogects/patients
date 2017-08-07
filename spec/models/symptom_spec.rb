@@ -14,7 +14,7 @@ RSpec.describe Symptom, type: :model do
     before { illness.symptoms << symptom }
 
     it 'returns last symptom occurence' do
-      expect(symptom.created_at).to eq illness_symptom.created_at
+      expect(symptom.first_occurence_date).to eq illness_symptom.created_at
     end
   end
 end
