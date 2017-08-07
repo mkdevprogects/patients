@@ -5,6 +5,8 @@ RSpec.describe Prescription, type: :model do
   it { is_expected.to belong_to :illness }
   it { is_expected.to belong_to :drug }
 
+  it { is_expected.to validate_presence_of(:doctor) }
+  it { is_expected.to validate_presence_of(:illness) }
   it { is_expected.to validate_presence_of(:drug_id) }
 
   let(:prescription) { create(:prescription) }
