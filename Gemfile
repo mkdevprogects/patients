@@ -20,21 +20,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-  gem 'byebug'
-end
-
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
 
 group :development, :test do
+  gem 'byebug'
+  gem 'dev_log_in'
   gem 'faker'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'rspec-rails', '~> 3.5'
-  gem 'shoulda-matchers', '~> 3.0'
   gem 'rubocop', '~> 0.49.1', require: false
+  gem 'shoulda-matchers', '~> 3.0'
 end
 
 gem 'simplecov', require: false, group: :test

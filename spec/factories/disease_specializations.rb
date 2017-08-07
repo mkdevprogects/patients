@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :disease_specialization do
-    disease_id
+    disease
     specialization
   end
 end
