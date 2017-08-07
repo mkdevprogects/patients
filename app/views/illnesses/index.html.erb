@@ -2,7 +2,7 @@
   <%= render 'common/illness_diseases_menu' %>
 
   <div  class="list-group">
-    <% current_patient.illnesses.each do |illness| %>
+    <% @illnesses.each do |illness| %>
       <%= link_to illness.first_disease_title, illness_path(illness), class: "list-group-item" %>
     <% end %>
   </div>
