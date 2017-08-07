@@ -12,9 +12,9 @@
       <tbody>
       <% prescriptions.each do |prescription| %>
           <tr>
-            <td class="width_15"><%=	prescription.human_created_at %></td>
-            <td class="width_20"> <%=	prescription.title %></td>
-            <td class="width_auto"> <%=	prescription.recommendations %></td>
+            <td class="width_15"><%= prescription.human_created_at %></td>
+            <td class="width_20"> <%= prescription.title %></td>
+            <td class="width_auto"><%= prescription.recommendations %></td>
           </tr>
       <%	end %>
       </tbody>
