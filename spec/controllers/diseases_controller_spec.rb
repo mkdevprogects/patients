@@ -40,5 +40,11 @@ RSpec.describe DiseasesController, type: :controller do
       get :show, { id: disease.id}
       expect(response).to render_template("show")
     end
+
+    it "load disease" do
+      sign_in patient
+      get :show, { id: disease.id}
+      expect(assigns(:disease)).to eq(disease)
+    end
   end
 end

@@ -44,7 +44,15 @@ RSpec.describe ClinicsController, type: :controller do
     it "load clinic" do
       sign_in patient
       get :show, { id: clinic.id}
-      expect(assigns(:clinic.send(:id))).to eq(clinic.id)
+      expect(assigns(:clinic)).to eq(clinic)
+    end
+
+    # падающий тест
+    it "page have clinics title" do
+      sign_in patient
+      get :show, { id: clinic.id}
+      puts "DEBUG: #{response.body}"
+      expect(response.body).to include("#{clinic.title}")
     end
   end
 end
