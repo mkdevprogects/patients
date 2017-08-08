@@ -28,7 +28,7 @@ RSpec.describe ClinicsController, type: :controller do
 
   describe "GET #show" do
     let(:clinic) { create(:clinic) }
-    
+
     it "returns http success" do
       sign_in patient
       get :show, { id: clinic.id}
@@ -40,5 +40,12 @@ RSpec.describe ClinicsController, type: :controller do
       get :show, { id: clinic.id}
       expect(response).to render_template("show")
     end
+
+    it "load clinic" do
+      sign_in patient
+      get :show, { id: clinic.id}
+      expect(assigns(:clinic.send(:id))).to eq(clinic.id)
+    end
   end
 end
+
