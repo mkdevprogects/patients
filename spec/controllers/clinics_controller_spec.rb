@@ -1,59 +1,57 @@
 require 'rails_helper'
 
 RSpec.describe ClinicsController, type: :controller do
+  render_views
   let(:patient) { create(:patient) }
 
-  describe "GET #index" do
-    let(:clinic_1) { create(:clinic) }
-    let(:clinic_2) { create(:clinic) }
+  context 'signed in' do
+    before { sign_in patient }
 
-    it "returns http success" do
-      sign_in patient
-      get :index
-      expect(response).to have_http_status(:success)
+    describe "GET #index" do
+      let!(:clinic_1) { create(:clinic) }
+      let!(:clinic_2) { create(:clinic) }
+
+      before { get :index }
+
+      it "returns http success" do
+        expect(response).to have_http_status(:success)
+      end
+
+      it "renders the index template" do
+        expect(response).to render_template("index")
+      end
+
+      it "loads all clinics" do
+        expect(assigns(:clinics)).to match_array([clinic_1, clinic_2])
+      end
+
+      it "page have clinics title" do
+        expect(response.body).to include("#{clinic_1.title}","#{clinic_2.title}")
+      end
     end
 
-    it "renders the index template" do
-      sign_in patient
-      get :index
-      expect(response).to render_template("index")
-    end
+    describe "GET #show" do
+      let(:clinic) { create(:clinic) }
 
-    it "loads all clinics" do
-      sign_in patient
-      get :index
-      expect(assigns(:clinics)).to match_array([clinic_1, clinic_2])
-    end
-  end
+      before { get :show, { id: clinic.id} }
 
-  describe "GET #show" do
-    let(:clinic) { create(:clinic) }
+      it "returns http success" do
+        expect(response).to have_http_status(:success)
+      end
 
-    it "returns http success" do
-      sign_in patient
-      get :show, { id: clinic.id}
-      expect(response).to have_http_status(:success)
-    end
+      it "renders the show template" do
+        expect(response).to render_template("show")
+      end
 
-    it "renders the show template" do
-      sign_in patient
-      get :show, { id: clinic.id}
-      expect(response).to render_template("show")
-    end
+      it "load clinic" do
+        expect(assigns(:clinic)).to eq(clinic)
+      end
 
-    it "load clinic" do
-      sign_in patient
-      get :show, { id: clinic.id}
-      expect(assigns(:clinic)).to eq(clinic)
-    end
-
-    # падающий тест
-    it "page have clinics title" do
-      sign_in patient
-      get :show, { id: clinic.id}
-      puts "DEBUG: #{response.body}"
-      expect(response.body).to include("#{clinic.title}")
+      it "page have clinics title" do
+        expect(response.body).to include("#{clinic.title}")
+      end
     end
   end
+
 end
 

@@ -3,11 +3,26 @@ require 'rails_helper'
 RSpec.describe SpecializationsController, type: :controller do
   let(:patient) { create(:patient) }
 
-  describe "GET #index" do
-    it "returns http success" do
-      sign_in patient
-      get :index
-      expect(response).to have_http_status(:success)
+  context 'signed in' do
+    before { sign_in patient }
+
+    describe "GET #index" do
+      let(:specialization_1) { create(:specialization) }
+      let(:specialization_2) { create(:specialization) }
+
+      before { get :index }
+
+      it "returns http success" do
+        expect(response).to have_http_status(:success)
+      end
+
+      it "renders the index template" do
+        expect(response).to render_template("index")
+      end
+
+      it "loads all specializations" do
+        expect(assigns(:specializations)).to match_array([specialization_1, specialization_2])
+      end
     end
   end
 end
