@@ -9,7 +9,7 @@ class DoctorDecorator < Draper::Decorator
     if object.grades.nil?
       ' Врач'
     else
-      object.grades.first.title
+      object.grades.first&.title
     end
   end
   

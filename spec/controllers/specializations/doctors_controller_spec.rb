@@ -12,6 +12,10 @@ RSpec.describe Specializations::DoctorsController, type: :controller do
       let!(:doctor_2) { create(:doctor) }
 
       before { get :index, specialization_id: specialization.id }
+      before do
+        doctor_1.specializations.push(specialization)
+        doctor_2.specializations.push(specialization)
+      end
 
       it "returns http success" do
         expect(response).to have_http_status(:success)
