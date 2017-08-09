@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Specializations::DoctorsController, type: :controller do
   render_views
+
   let(:patient) { create(:patient) }
   let!(:specialization) { create(:specialization) }
+
   context 'signed in' do
     before { sign_in patient }
 
@@ -11,10 +13,10 @@ RSpec.describe Specializations::DoctorsController, type: :controller do
       let!(:doctor_1) { create(:doctor) }
       let!(:doctor_2) { create(:doctor) }
 
-      before { get :index, specialization_id: specialization.id }
       before do
-        doctor_1.specializations.push(specialization)
-        doctor_2.specializations.push(specialization)
+        doctor_1.specializations << specialization
+        doctor_2.specializations << specialization
+        get :index, specialization_id: specialization.id
       end
 
       it "returns http success" do
