@@ -4,4 +4,6 @@ class Specialization < ActiveRecord::Base
 
   has_many :disease_specializations
   has_many :diseases, through: :disease_specializations
+
+  validates :title, :code, presence: true
 end

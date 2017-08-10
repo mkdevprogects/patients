@@ -10,13 +10,13 @@
       </tr>
       </thead>
       <tbody>
-      <% @illness.prescriptions.each do |prescription| %>
+      <% prescriptions.each do |prescription| %>
           <tr>
-            <td style="width: 15%"><%=	prescription.created_at %></td>
-            <td style="width: 20%"> <%=	prescription.title %></td>
-            <td style="width: auto"> <%=	prescription.recommendations %></td>
+            <td class="width_15"><%= prescription.human_created_at %></td>
+            <td class="width_20"> <%= prescription.title %></td>
+            <td class="width_auto"><%= prescription.recommendations %></td>
           </tr>
-      <%	end %>
+      <% end %>
       </tbody>
     </table>
   </td>

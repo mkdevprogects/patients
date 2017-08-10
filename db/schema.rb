@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 20170804220101) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "illness_id"
+    t.integer  "doctor_id"
     t.integer  "drug_id"
   end
 

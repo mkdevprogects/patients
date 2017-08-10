@@ -4,7 +4,7 @@ class Prescription < ActiveRecord::Base
   belongs_to :illness
   belongs_to :drug
 
-  validates :drug_id, presence: true
+  validates :doctor, :illness, :drug_id, presence: true
 
   def title
     drug.title

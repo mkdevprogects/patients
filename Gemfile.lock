@@ -51,6 +51,8 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     debug_inspector (0.0.3)
+    dev_log_in (1.1.0)
+      rails (>= 3.0.0)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -221,6 +223,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  dev_log_in
   devise (~> 4.3)
   draper (~> 2.1)
   factory_girl_rails (~> 4.0)

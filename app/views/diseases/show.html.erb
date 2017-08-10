@@ -5,6 +5,8 @@
 <h5>Клиники, в которых лечат данную болезнь</h5>
 <div class="list-group">
   <%	@disease.clinics.each do |clinic| %>
-        <%=	link_to clinic.title, clinic_path(clinic.id), class: "list-group-item" %>
+      <%=	link_to clinic.title, clinic_path(clinic.id), class: "list-group-item" %>
   <% end %>
 </div>
+
+<%= link_to 'Назад', diseases_path, class: 'btn btn-primary btn-m' %>

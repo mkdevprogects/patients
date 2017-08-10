@@ -9,10 +9,10 @@
       </tr>
       </thead>
       <tbody>
-      <%	@illness.symptoms.each  do |symptom| %>
+      <%	symptoms.each  do |symptom| %>
           <tr>
-            <td style="width: 15%"> <%=	symptom.title %></td>
-            <td><%=	symptom.created_at %></td>
+            <td class="width_15"> <%=	symptom.title %></td>
+            <td><%=	symptom.human_first_occurence_date %></td>
           </tr>
       <%	end %>
       </tbody>
