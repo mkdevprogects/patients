@@ -54,41 +54,19 @@ RSpec.describe ClinicsController, type: :controller do
   end
 
   context 'guest' do
-
     describe "GET #index" do
-      let!(:clinic_1) { create(:clinic) }
-      let!(:clinic_2) { create(:clinic) }
-
-      before { get :index }
-
-      it "returns http success" do
+      it "returns http 302" do
+        get :index
         expect(response).to have_http_status(302)
-      end
-
-      it "not loads all clinics" do
-        expect(assigns(:clinics)).not_to match_array([clinic_1, clinic_2])
-      end
-
-      it "page does not have clinics title" do
-        expect(response.body).not_to include("#{clinic_1.title}","#{clinic_2.title}")
       end
     end
 
     describe "GET #show" do
       let(:clinic) { create(:clinic) }
 
-      before { get :show, { id: clinic.id} }
-
       it "returns http 302" do
+        get :show, { id: clinic.id}
         expect(response).to have_http_status(302)
-      end
-
-      it "not load clinic" do
-        expect(assigns(:clinic)).not_to eq(clinic)
-      end
-
-      it "page does not have clinics title" do
-        expect(response.body).not_to include("#{clinic.title}")
       end
     end
   end

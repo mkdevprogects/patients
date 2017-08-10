@@ -36,4 +36,13 @@ RSpec.describe Specializations::DoctorsController, type: :controller do
       end
     end
   end
+
+  context 'guest' do
+    describe "GET #index" do
+      it "returns http 302" do
+        get :index, specialization_id: specialization.id
+        expect(response).to have_http_status(302)
+      end
+    end
+  end
 end

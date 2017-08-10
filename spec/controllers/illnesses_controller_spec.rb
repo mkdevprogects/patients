@@ -41,4 +41,22 @@ RSpec.describe IllnessesController, type: :controller do
       end
     end
   end
+
+  context 'guest' do
+    describe "GET #index" do
+      it "returns http 302" do
+        get :index
+        expect(response).to have_http_status(302)
+      end
+    end
+
+    describe "GET #show" do
+      let(:illness) { create(:illness) }
+
+      it "returns http 302" do
+        get :show, { id: illness.id}
+        expect(response).to have_http_status(302)
+      end
+    end
+  end
 end
