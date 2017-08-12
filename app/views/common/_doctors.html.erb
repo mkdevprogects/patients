@@ -4,8 +4,7 @@
     <% if @search %>
       <%= search_form_for @search do |f| %>
           <div class="field">
-            <%= f.label :doctor_cont, 'Имя врача или специализация' %>
-            <%= f.text_field :doctor_cont%>
+            <%= f.text_field :doctor_cont, placeholder: 'Имя врача или специализация', class: 'col-lg-3'%>
           </div>
           <div class="actions">
             <%= f.submit 'Поиск'%>
