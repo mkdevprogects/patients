@@ -33,6 +33,7 @@ RSpec.describe Specializations::DoctorsController, type: :controller do
 
       # Этот тест периодически падает
       it "page have doctors names" do
+        p response.body
         expect(response.body).to include("#{doctor_1.name}","#{doctor_2.name}")
       end
     end
