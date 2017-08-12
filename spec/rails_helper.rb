@@ -12,6 +12,8 @@ require 'rspec/rails'
 
 ActiveRecord::Migration.maintain_test_schema!
 
+Dir["./spec/support/**/*.rb"].sort.each { |f| require f }
+
 RSpec.configure do |config|
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

@@ -7,6 +7,8 @@ describe IllnessDecorator do
   let!(:visit_2) { create(:visit, illness: illness) }
   let!(:prescription_1) { create(:prescription, illness: illness) }
 
+  it_behaves_like 'has human date', :created_at, :illness
+
   it 'visits should return decorate object' do
     expect(subject.visits).to be_decorated
   end
