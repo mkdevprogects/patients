@@ -6,7 +6,7 @@ class DoctorDecorator < Draper::Decorator
   end
 
   def grade
-    if object.grades.nil?
+    if object.grades.empty?
       ' Врач'
     else
       object.grades.first&.title
@@ -14,7 +14,7 @@ class DoctorDecorator < Draper::Decorator
   end
   
   def grades
-    if object.grades.nil?
+    if object.grades.empty?
     ' Врач'
     else
       titles_list(object.grades)
