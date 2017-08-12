@@ -16,4 +16,23 @@ class Visit < ActiveRecord::Base
   def clinic_title
     clinic.title
   end
+
+  aasm do
+    state :pending, initial: true
+    state :skipped
+    state :aborted
+    state :done
+
+    event :skip do
+      transitions from: :pending, to: :skipped
+    end
+
+    event :interrupt do
+      transitions from: [:pending, :skipped], to: :aborted
+    end
+
+    event :complete do
+      transitions from: [:pending, :skipped], to: :done
+    end
+  end
 end

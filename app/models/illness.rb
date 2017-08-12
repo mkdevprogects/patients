@@ -25,6 +25,7 @@ class Illness < ActiveRecord::Base
     state :therapy
     state :recovered
 
+    # не уверен, что это событие нужно
     event :pending do
       transitions from: :visit, to: :peending
     end
@@ -33,15 +34,15 @@ class Illness < ActiveRecord::Base
       transitions from: [:peending, :therapy, :tests], to: :visit
     end
 
-    event :test do
+    event :take_tests do
       transitions from: :visit, to: :tests
     end
 
-    event :therapy do
+    event :be_treated do
       transitions from: :visit, to: :therapy
     end
 
-    event :recovered do
+    event :recover do
       transitions from: :visit, to: :recovered
     end
   end
