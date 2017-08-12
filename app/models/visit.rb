@@ -1,4 +1,6 @@
 class Visit < ActiveRecord::Base
+  include AASM
+
   belongs_to :doctor
   belongs_to :illness
   belongs_to :clinic
