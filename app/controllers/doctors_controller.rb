@@ -1,7 +1,7 @@
 class DoctorsController < BaseController
   def index
     @search = Doctor.ransack(params[:q])
-    @doctors = @search.result.includes(:specializations)
+    @doctors = @search.result.includes(:specializations, :grades, :clinics)
                    .decorate
   end
 
