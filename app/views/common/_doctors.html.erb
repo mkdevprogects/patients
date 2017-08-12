@@ -1,5 +1,18 @@
 <div class="panel panel-default">
   <div class="panel-heading">Врачи</div>
+  <div class="panel-body">
+    <% if @search %>
+      <%= search_form_for @search do |f| %>
+          <div class="field">
+            <%= f.label :name_or_surname_or_specializations_title_cont, 'Имя врача или специализация' %>
+            <%= f.text_field :name_or_surname_or_specializations_title_cont%>
+          </div>
+          <div class="actions">
+            <%= f.submit 'Поиск'%>
+          </div>
+      <% end %>
+    <% end%>
+  </div>
   <table class="table">
     <thead>
     <tr>
