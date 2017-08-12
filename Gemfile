@@ -35,6 +35,7 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 3.0'
 end
 
+gem 'aasm', '~> 4.12', '>= 4.12.2'
 gem 'simplecov', require: false, group: :test
 gem 'devise', '~> 4.3'
 gem 'draper', '~> 2.1'
