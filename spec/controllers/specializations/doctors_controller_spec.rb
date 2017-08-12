@@ -10,8 +10,8 @@ RSpec.describe Specializations::DoctorsController, type: :controller do
     before { sign_in patient }
 
     describe "GET #index" do
-      let!(:doctor_1) { create(:doctor) }
-      let!(:doctor_2) { create(:doctor) }
+      let!(:doctor_1) { create(:doctor, name: 'name1') }
+      let!(:doctor_2) { create(:doctor, name: 'name2') }
 
       before do
         doctor_1.specializations << specialization
@@ -31,9 +31,7 @@ RSpec.describe Specializations::DoctorsController, type: :controller do
         expect(assigns(:doctors)).to match_array([doctor_1, doctor_2])
       end
 
-      # Этот тест периодически падает
       it "page have doctors names" do
-        p response.body
         expect(response.body).to include("#{doctor_1.name}","#{doctor_2.name}")
       end
     end
