@@ -26,6 +26,6 @@ describe DoctorDecorator, type: :decorator do
   end
 
   it 'should return "Врач"' do
-    expect(subject.grades).to == ' Врач'
+    expect(subject.grades).to be == ' Врач'
   end
 end
