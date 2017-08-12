@@ -31,6 +31,7 @@ RSpec.describe Specializations::DoctorsController, type: :controller do
         expect(assigns(:doctors)).to match_array([doctor_1, doctor_2])
       end
 
+      # Этот тест периодически падает
       it "page have doctors names" do
         expect(response.body).to include("#{doctor_1.name}","#{doctor_2.name}")
       end
