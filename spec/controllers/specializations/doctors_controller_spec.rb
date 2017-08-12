@@ -10,8 +10,8 @@ RSpec.describe Specializations::DoctorsController, type: :controller do
     before { sign_in patient }
 
     describe "GET #index" do
-      let!(:doctor_1) { create(:doctor) }
-      let!(:doctor_2) { create(:doctor) }
+      let!(:doctor_1) { create(:doctor, name: 'name1') }
+      let!(:doctor_2) { create(:doctor, name: 'name2') }
 
       before do
         doctor_1.specializations << specialization
@@ -33,6 +33,15 @@ RSpec.describe Specializations::DoctorsController, type: :controller do
 
       it "page have doctors names" do
         expect(response.body).to include("#{doctor_1.name}","#{doctor_2.name}")
+      end
+    end
+  end
+
+  context 'guest' do
+    describe "GET #index" do
+      it "returns http 302" do
+        get :index, specialization_id: specialization.id
+        expect(response).to have_http_status(302)
       end
     end
   end

@@ -16,7 +16,7 @@ RSpec.describe Visit, type: :model do
     expect(visit.doctor.name).to be == visit.doctor_name
   end
 
-  it 'строка отдаваемая doctor_name должна быть эквивалентна строке .doctor.surname' do
+  it 'строка отдаваемая clinic_title должна быть эквивалентна строке .clinic.title' do
     expect(visit.clinic.title).to be == visit.clinic_title
   end
 end

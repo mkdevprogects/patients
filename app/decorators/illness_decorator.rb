@@ -1,4 +1,6 @@
 class IllnessDecorator < Draper::Decorator
+  include HasHumanDate
+
   delegate_all
 
   def visits
