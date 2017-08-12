@@ -3,10 +3,6 @@ class IllnessDecorator < Draper::Decorator
 
   delegate_all
 
-  def human_created_at
-    human_date_on(:created_at)
-  end
-
   def visits
     VisitDecorator.decorate_collection(object.visits)
   end
