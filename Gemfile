@@ -38,3 +38,4 @@ end
 gem 'simplecov', require: false, group: :test
 gem 'devise', '~> 4.3'
 gem 'draper', '~> 2.1'
+gem 'ransack'

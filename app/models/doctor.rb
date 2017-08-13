@@ -17,4 +17,6 @@ class Doctor < ActiveRecord::Base
 
   validates :name, :surname, presence: true
   validates :email, presence: true, uniqueness: true
+
+  ransack_alias :doctor, :name_or_surname_or_specializations_title_or_grades_title_or_clinics_title
 end
