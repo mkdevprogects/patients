@@ -1,0 +1,17 @@
+<h4>Запись на прием</h4>
+
+<h5>Выберите симптом:</h5>
+
+<%= simple_form_for @symptoms.first do |f| %>
+    <!--< %= f.collection_check_boxes %>-->
+    <!--< %= f.button :submit %>-->
+<% end %>
+
+<% @symptoms.each do |symptom| %>
+    <%= symptom.title %> <br>
+<% end %>
+
+
+
+
+<%= link_to 'Назад', home_index_path %>
