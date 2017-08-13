@@ -27,11 +27,11 @@ class Illness < ActiveRecord::Base
 
     # не уверен, что это событие нужно
     event :pending do
-      transitions from: :visit, to: :peending
+      transitions from: :visit, to: :pending
     end
 
     event :visit do
-      transitions from: [:peending, :therapy, :tests], to: :visit
+      transitions from: [:pending, :therapy, :tests], to: :visit
     end
 
     event :take_tests do
