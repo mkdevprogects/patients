@@ -21,4 +21,14 @@ RSpec.describe Illness, type: :model do
   it 'метод clinic возвращает клинку из посленего приема по текущей болезни' do
     expect(illness.clinic).to be == clinic_1
   end
+
+  describe "states" do
+    it { expect(illness).to transition_from(:visit).to(:pending).on_event(:pending) }
+    it { expect(illness).to transition_from(:pending).to(:visit).on_event(:visit) }
+    it { expect(illness).to transition_from(:therapy).to(:visit).on_event(:visit) }
+    it { expect(illness).to transition_from(:tests).to(:visit).on_event(:visit) }
+    it { expect(illness).to transition_from(:visit).to(:tests).on_event(:take_tests) }
+    it { expect(illness).to transition_from(:visit).to(:therapy).on_event(:be_treated) }
+    it { expect(illness).to transition_from(:visit).to(:recovered).on_event(:recover) }
+  end
 end

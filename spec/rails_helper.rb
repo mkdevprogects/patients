@@ -3,6 +3,7 @@ require 'faker'
 require 'factory_girl_rails'
 require 'support/factory_girl'
 require 'devise'
+require 'aasm/rspec'
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)

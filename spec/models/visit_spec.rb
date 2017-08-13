@@ -19,4 +19,12 @@ RSpec.describe Visit, type: :model do
   it 'строка отдаваемая clinic_title должна быть эквивалентна строке .clinic.title' do
     expect(visit.clinic.title).to be == visit.clinic_title
   end
+
+  describe "states" do
+    it { expect(visit).to transition_from(:pending).to(:skipped).on_event(:skip) }
+    it { expect(visit).to transition_from(:pending).to(:aborted).on_event(:interrupt) }
+    it { expect(visit).to transition_from(:skipped).to(:aborted).on_event(:interrupt) }
+    it { expect(visit).to transition_from(:pending).to(:done).on_event(:complete) }
+    it { expect(visit).to transition_from(:skipped).to(:done).on_event(:complete) }
+  end
 end

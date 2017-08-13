@@ -1,4 +1,6 @@
 class Illness < ActiveRecord::Base
+  include AASM
+
   belongs_to :patient
   belongs_to :doctor
 
@@ -14,5 +16,34 @@ class Illness < ActiveRecord::Base
 
   def clinic
     visits.last.clinic
+  end
+
+  aasm do
+    state :pending, initial: true
+    state :visit
+    state :tests
+    state :therapy
+    state :recovered
+
+    # не уверен, что это событие нужно
+    event :pending do
+      transitions from: :visit, to: :pending
+    end
+
+    event :visit do
+      transitions from: [:pending, :therapy, :tests], to: :visit
+    end
+
+    event :take_tests do
+      transitions from: :visit, to: :tests
+    end
+
+    event :be_treated do
+      transitions from: :visit, to: :therapy
+    end
+
+    event :recover do
+      transitions from: :visit, to: :recovered
+    end
   end
 end
