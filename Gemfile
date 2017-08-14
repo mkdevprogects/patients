@@ -30,6 +30,7 @@ group :development, :test do
   gem 'dev_log_in'
   gem 'faker'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'railroady'
   gem 'rspec-rails', '~> 3.5'
   gem 'rubocop', '~> 0.49.1', require: false
   gem 'shoulda-matchers', '~> 3.0'
@@ -40,3 +41,4 @@ gem 'simplecov', require: false, group: :test
 gem 'devise', '~> 4.3'
 gem 'draper', '~> 2.1'
 gem 'ransack'
+gem 'simple_form', '~> 3.2', '>= 3.2.1'
