@@ -1,0 +1,1 @@
+/Users/anton/RubymineProjects/Rails/mkdev/migrations/db/schema.rb
