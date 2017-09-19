@@ -14,6 +14,8 @@ class Illness < ActiveRecord::Base
   has_many :diagnoses
   has_many :diseases, through: :diagnoses
 
+  belongs_to :illness_request
+
   def clinic
     visits.last.clinic
   end

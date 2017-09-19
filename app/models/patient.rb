@@ -6,5 +6,7 @@ class Patient < ActiveRecord::Base
   has_many :illnesses
   has_many :doctors, through: :illnesses
 
+  has_many :illness_requests
+
   validates :email, presence: true, uniqueness: true
 end
