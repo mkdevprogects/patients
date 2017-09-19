@@ -6,6 +6,9 @@ class Symptom < ActiveRecord::Base
   has_many :disease_symptoms
   has_many :diseases, through: :disease_symptoms
 
+  has_many :illness_request_symptoms
+  has_many :illness_requests, through: :illness_request_symptoms
+
   validates :title, presence: true
 
   def first_occurence_date
