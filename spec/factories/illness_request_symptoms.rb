@@ -1,7 +1,6 @@
 FactoryGirl.define do
-  factory :illness do
-    patient
-    doctor
+  factory :illness_request_symptom do
     illness_request
+    symptom
   end
 end

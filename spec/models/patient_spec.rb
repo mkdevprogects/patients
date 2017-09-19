@@ -7,4 +7,5 @@ RSpec.describe Patient, type: :model do
   it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
   it { is_expected.to have_many(:doctors) }
   it { is_expected.to have_many(:illnesses) }
+  it { is_expected.to have_many(:illness_requests) }
 end

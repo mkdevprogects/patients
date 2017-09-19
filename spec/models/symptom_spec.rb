@@ -5,6 +5,7 @@ RSpec.describe Symptom, type: :model do
 
   it { is_expected.to have_many(:illnesses) }
   it { is_expected.to have_many(:diseases) }
+  it { is_expected.to have_many(:illness_request_symptoms) }
 
   describe '#created_at' do
     let(:illness) { create(:illness) }
