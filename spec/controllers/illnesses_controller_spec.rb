@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe IllnessesController, type: :controller do
   let(:patient) { create(:patient) }
-  let(:illness) { create(:illness, patient_id: 1) }
+  let(:illness) { create(:illness, patient_id: patient.id) }
 
   context 'signed in' do
     before { sign_in patient }
 
     describe "GET #index" do
-      let(:illness_2) { create(:illness, patient_id: 1) }
+      let(:illness_2) { create(:illness, patient_id: patient.id) }
 
       before { get :index }
 
