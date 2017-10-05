@@ -10,9 +10,9 @@ RSpec.describe Symptom, type: :model do
   describe '#created_at' do
     let(:illness) { create(:illness) }
     let(:symptom) { create(:symptom) }
-    let(:illness_symptom) { illness.illness_symptoms.last }
 
     before { illness.symptoms << symptom }
+    let(:illness_symptom) { illness.illness_symptoms.last }
 
     it 'returns last symptom occurence' do
       puts
