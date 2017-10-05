@@ -2,16 +2,10 @@
 
 <h5>Выберите симптом:</h5>
 
-<%= simple_form_for @illness, url: illness_request_index_path do |f| %>
+<%= simple_form_for @illness_request do |f| %>
     <%= f.collection_check_boxes :symptom_ids, @symptoms, :id, :title %>
     <%= f.button :submit %>
 <% end %>
-
-<% @symptoms.each do |symptom| %>
-    <%= symptom.title %> <br>
-<% end %>
-
-
 
 
 <%= link_to 'Назад', home_index_path %>

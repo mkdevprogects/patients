@@ -1,7 +1,7 @@
 class IllnessRequestController < ApplicationController
   def new
     @symptoms = Symptom.all
-    @illness = Illness.new
+    @illness_request = IllnessRequest.new
   end
 
   def create
