@@ -1,6 +1,8 @@
 require 'simplecov'
 SimpleCov.start 'rails'
- 
+# require 'database_cleaner'
+require_relative 'support/database_cleaner'
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
