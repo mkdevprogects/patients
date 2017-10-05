@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :illness_request do
+  factory :illness_requests do
     patient
     illness
     sequence(:distance) { rand(1..30) }
