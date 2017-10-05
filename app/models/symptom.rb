@@ -12,6 +12,6 @@ class Symptom < ActiveRecord::Base
   validates :title, presence: true
 
   def first_occurence_date
-    illness_symptoms.find(self.id).created_at
+    illness_symptoms.find_by(symptom_id: self.id).created_at
   end
 end

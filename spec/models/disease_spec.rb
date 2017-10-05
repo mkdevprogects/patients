@@ -35,12 +35,7 @@ RSpec.describe Disease, type: :model do
 
     it 'метод clinics должен возвращать массив клиник, в которых лечат эту болезнь' do
       clinics = [ clinic_1, clinic_2 ]
-      p "DEBUG"
-      p clinic_1.id
-      p clinic_2.id
-      p clinics
-      p "DEBUG"
-      expect(disease.clinics.to_a).to be == clinics
+      expect(disease.clinics.to_a).to match_array(clinics)
     end
 
     it 'болезни лечатся в разных клиниках, если у них разные специализации' do
