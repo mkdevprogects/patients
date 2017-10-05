@@ -1,5 +1,6 @@
 require 'simplecov'
 SimpleCov.start 'rails'
+require 'database_cleaner'
  
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -8,6 +9,19 @@ RSpec.configure do |config|
 
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
+  end
+
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups

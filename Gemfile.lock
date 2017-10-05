@@ -52,6 +52,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    database_cleaner (1.6.1)
     debug_inspector (0.0.3)
     dev_log_in (1.1.0)
       rails (>= 3.0.0)
@@ -238,6 +239,7 @@ DEPENDENCIES
   aasm (~> 4.12, >= 4.12.2)
   byebug
   coffee-rails (~> 4.1.0)
+  database_cleaner (~> 1.6, >= 1.6.1)
   dev_log_in
   devise (~> 4.3)
   draper (~> 2.1)
@@ -265,4 +267,4 @@ RUBY VERSION
    ruby 2.4.0p0
 
 BUNDLED WITH
-   1.15.1
+   1.15.4

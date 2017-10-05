@@ -36,8 +36,12 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 3.0'
 end
 
+group :test do
+  gem 'database_cleaner', '~> 1.6', '>= 1.6.1'
+  gem 'simplecov', require: false
+end
+
 gem 'aasm', '~> 4.12', '>= 4.12.2'
-gem 'simplecov', require: false, group: :test
 gem 'devise', '~> 4.3'
 gem 'draper', '~> 2.1'
 gem 'ransack'
