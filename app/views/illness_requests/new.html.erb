@@ -4,7 +4,7 @@
 
 <%= simple_form_for @illness_request do |f| %>
     <%= f.collection_check_boxes :symptom_ids, @symptoms, :id, :title %>
-    <%= f.button :submit %>
+    <%= f.button :submit, 'Отправить' %>
 <% end %>
 
 

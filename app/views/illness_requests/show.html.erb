@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><%=	@illness_request.inspect %></div>
+  <div  class="list-group">
+    <% @illness_request.symptoms.each do |symptom| %>
+        <div class="list-group-item">
+          <%= symptom.title %>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'Назад', illness_requests_path %>
