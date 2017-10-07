@@ -1,52 +1,11 @@
 ru:
- activerecord:
-  models:
-   clinic: 'Клиника'
-   doctor: 'Врач'
-   disease: 'Болезнь'
-   symptom: 'Симптом'
-   specialization: 'Специализация'
-   diagnosis: 'Диагноз'
-   grade: 'Категория'
-   drug: 'Лекарство'
-   illness: 'Болезнь'
-   patient: 'Пациент'
-   prescription: 'Рецепт'
-   visit: 'Прием'
-   performed_action: 'Лог системы'
-  attributes:
-   clinic:
-    doctors: 'Врачи'
-    title: 'Название клиники'
-    phone: 'Телефон клиники'
-    email: 'Email клиники'
-    address: 'Адрес клиники'
-   symptom:
-    title: 'Название симптома'
-    description: 'Описание симптома'
-    diseases: 'Болезни'
-   doctor:
-    name: 'Имя'
-    surname: 'Фамилия'
-    patronymic: 'Отчество'
-    phone: 'Телефон'
-    email: 'email'
-    grades: 'Категории'
-    specializations: 'Специализации'
-    clinics: 'Клиники'
-   performed_action:
-    actor: 'Пользователь'
-    actor_type: 'Роль'
-    actor_id: 'id пользователя'
-    subject_type: 'Сущность'
-    action: 'Дейстие'
-    created_at: 'Дата и время'
-   disease:
-    title: 'Название болезни'
-    icd_code: 'Код по МКБ'
-    description: 'Описание болезни'
-    specializations: 'Специализации врачей, которые занимаются лечением данной болезни'
-    symptoms: 'Симптомы болезни'
-  errors:
-   messages:
-    blank: 'не может быть пустым'
+  activerecord:
+    errors:
+      models:
+        illness_request:
+          attributes:
+            symptoms:
+              blank: 'Выберите хотя бы один симптом'
+      messages:
+        blank: 'не может быть пустым'
+        record_invalid: 'Ошибка записи'
