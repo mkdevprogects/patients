@@ -59,7 +59,7 @@ RSpec.describe IllnessRequestsController, type: :controller do
     describe 'POST #create' do
       context 'valid data' do
         it 'redirect to show' do
-          post :create, { illness_request: attributes_for(:illness_request, symptoms: build(:symptom)) }
+          post :create, { illness_request: attributes_for(:illness_request).merge(symptom_ids: [create(:symptom).id]) }
           expect(response).to redirect_to assigns(:illness_request)
         end
       end
