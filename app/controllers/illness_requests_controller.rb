@@ -1,4 +1,4 @@
-class IllnessRequestsController < ApplicationController
+class IllnessRequestsController < BaseController
 
   def index
     @illness_requests = current_patient.illness_requests
