@@ -16,7 +16,7 @@ class IllnessRequestsController < ApplicationController
   def create
     @illness_request = current_patient.illness_requests.build(illness_request_params)
     if @illness_request.save
-      redirect_to :home_index, notice: 'Заявка успешно создана.'
+      redirect_to @illness_request, notice: t('notices.illness_request')
     else
       render :new
     end
