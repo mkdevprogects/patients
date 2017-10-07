@@ -1,5 +1,10 @@
 <div class="panel panel-default">
-  <div class="panel-heading"><%=	@illness_request.inspect %></div>
+  <div class="panel-heading">
+    <h5>
+      <%=	"#{t('request')} #{@illness_request.id}" %>
+    </h5>
+  </div>
+  <div class="panel-heading">Симптомы:</div>
   <div  class="list-group">
     <% @illness_request.symptoms.each do |symptom| %>
         <div class="list-group-item">
