@@ -4,4 +4,6 @@ class IllnessRequest < ActiveRecord::Base
 
   has_many :illness_request_symptoms
   has_many :symptoms, through: :illness_request_symptoms
+
+  validates :symptoms, presence: true
 end
