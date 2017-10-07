@@ -14,8 +14,7 @@ class IllnessRequestsController < ApplicationController
   end
 
   def create
-    @illness_request = IllnessRequest.new(illness_request_params)
-    @illness_request.patient = current_patient
+    @illness_request = current_patient.illness_requests.build(illness_request_params)
     if @illness_request.save
       redirect_to :home_index, notice: 'Заявка успешно создана.'
     else
