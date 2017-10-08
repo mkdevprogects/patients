@@ -1,6 +1,5 @@
 require 'simplecov'
 SimpleCov.start 'rails'
-# require 'database_cleaner'
 require_relative 'support/database_cleaner'
 require_relative 'support/actions_helper'
 

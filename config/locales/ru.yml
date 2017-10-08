@@ -9,4 +9,6 @@ ru:
   notices:
     illness_request: 'Заявка успешно создана. Система работает над вашей заявкой.'
   request: 'Заявка'
-  write_an_appointment: 'Запись на прием'
+  titles:
+    illness_request:
+      write_an_appointment: 'Запись на прием'
