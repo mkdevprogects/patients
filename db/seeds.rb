@@ -74,3 +74,34 @@ prescriptions = [
 prescriptions.each do |params|
     Prescription.create!(params)
 end
+
+illnesses_requests = [
+    {
+        patient_id: 1,
+        symptoms: [Symptom.find(1), Symptom.find(2)]
+    },
+    {
+        patient_id: 1,
+        symptoms: [Symptom.find(3), Symptom.find(4)]
+    },
+    {
+        patient_id: 1,
+        symptoms: [Symptom.find(5), Symptom.find(6)]
+    },
+    {
+        patient_id: 2,
+        symptoms: [Symptom.find(6), Symptom.find(2)]
+    },
+    {
+        patient_id: 2,
+        symptoms: [Symptom.find(3), Symptom.find(1)]
+    },
+    {
+        patient_id: 2,
+        symptoms: [Symptom.find(9), Symptom.find(6)]
+    }
+]
+
+illnesses_requests.each do |params|
+    IllnessRequest.create!(params)
+end
