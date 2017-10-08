@@ -1,7 +1,7 @@
 require 'simplecov'
 SimpleCov.start 'rails'
-# require 'database_cleaner'
 require_relative 'support/database_cleaner'
+require_relative 'support/actions_helper'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -18,6 +18,4 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 end
 
-def email
-  "qwerty#{rand(1000)}@gmail.com"
-end
+

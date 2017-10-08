@@ -1,0 +1,6 @@
+ru:
+  simple_form:
+    "yes": 'Да'
+    "no": 'Нет'
+    actions:
+      submit: 'Отправить'

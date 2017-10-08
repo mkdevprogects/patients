@@ -1,0 +1,11 @@
+<h4><%= t('titles.illness_request.write_an_appointment') %></h4>
+
+<h5>Выберите симптом:</h5>
+<div class="caption">
+  <%= simple_form_for @illness_request do |f| %>
+      <%= f.association :symptoms, label_method: :title, as: :check_boxes %>
+      <%= f.button :submit, t('simple_form.actions.submit') %>
+  <% end %>
+</div>
+
+<%= link_to t('actions.back'), home_index_path %>

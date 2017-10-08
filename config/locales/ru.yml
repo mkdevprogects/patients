@@ -1,0 +1,14 @@
+ru:
+  actions:
+    create: 'Создать'
+    edit: 'Изменить'
+    update: 'Изменить'
+    delete: 'Удалить'
+    back: 'Назад'
+    save: 'Сохранить'
+  notices:
+    illness_request: 'Заявка успешно создана. Система работает над вашей заявкой.'
+  request: 'Заявка'
+  titles:
+    illness_request:
+      write_an_appointment: 'Запись на прием'

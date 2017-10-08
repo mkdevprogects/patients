@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+  <%= render 'common/illness_diseases_menu' %>
+
+  <div  class="list-group">
+    <% @illness_requests.each do |illness_request| %>
+        <%= link_to "#{t('request')} #{illness_request.id}", illness_request_path(illness_request.id), class: "list-group-item" %>
+    <% end %>
+  </div>
+
+</div>

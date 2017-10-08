@@ -1,0 +1,11 @@
+ru:
+  activerecord:
+    errors:
+      models:
+        illness_request:
+          attributes:
+            symptoms:
+              blank: 'Выберите хотя бы один симптом'
+      messages:
+        blank: 'не может быть пустым'
+        record_invalid: 'Ошибка записи'

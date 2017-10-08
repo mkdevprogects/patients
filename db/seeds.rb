@@ -1,3 +1,16 @@
+Specialization.delete_all
+Symptom.delete_all
+Clinic.delete_all
+Grade.delete_all
+Disease.delete_all
+Doctor.delete_all
+Patient.delete_all
+Drug.delete_all
+Visit.delete_all
+Illness.delete_all
+Prescription.delete_all
+IllnessRequest.delete_all
+
 Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each { |seed| load seed }
 
 illnesses = [
@@ -73,4 +86,35 @@ prescriptions = [
 
 prescriptions.each do |params|
     Prescription.create!(params)
+end
+
+illnesses_requests = [
+    {
+        patient_id: 1,
+        symptoms: [Symptom.find(1), Symptom.find(2)]
+    },
+    {
+        patient_id: 1,
+        symptoms: [Symptom.find(3), Symptom.find(4)]
+    },
+    {
+        patient_id: 1,
+        symptoms: [Symptom.find(5), Symptom.find(6)]
+    },
+    {
+        patient_id: 2,
+        symptoms: [Symptom.find(6), Symptom.find(2)]
+    },
+    {
+        patient_id: 2,
+        symptoms: [Symptom.find(3), Symptom.find(1)]
+    },
+    {
+        patient_id: 2,
+        symptoms: [Symptom.find(9), Symptom.find(6)]
+    }
+]
+
+illnesses_requests.each do |params|
+    IllnessRequest.create!(params)
 end
