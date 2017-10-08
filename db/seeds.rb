@@ -1,3 +1,16 @@
+Specialization.delete_all
+Symptom.delete_all
+Clinic.delete_all
+Grade.delete_all
+Disease.delete_all
+Doctor.delete_all
+Patient.delete_all
+Drug.delete_all
+Visit.delete_all
+Illness.delete_all
+Prescription.delete_all
+IllnessRequest.delete_all
+
 Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each { |seed| load seed }
 
 illnesses = [
