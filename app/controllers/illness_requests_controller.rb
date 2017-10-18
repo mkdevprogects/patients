@@ -1,4 +1,5 @@
 class IllnessRequestsController < BaseController
+  after_action set_illness_request_id_to_system, only: [:create]
 
   def index
     @illness_requests = current_patient.illness_requests
@@ -32,5 +33,9 @@ class IllnessRequestsController < BaseController
         :patient_id,
         symptom_ids: []
     )
+  end
+
+  def set_illness_request_id_to_system
+    Services::IllnessRequestCreator.new(IllnessRequest.last.id)
   end
 end
