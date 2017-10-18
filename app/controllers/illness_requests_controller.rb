@@ -1,5 +1,6 @@
+require_relative '../../services/illness_request_creator'
+
 class IllnessRequestsController < BaseController
-  after_action set_illness_request_id_to_system, only: [:create]
 
   def index
     @illness_requests = current_patient.illness_requests
@@ -17,6 +18,7 @@ class IllnessRequestsController < BaseController
   def create
     @illness_request = current_patient.illness_requests.build(illness_request_params)
     if @illness_request.save
+      set_illness_request_id_to_system(@illness_request.id)
       redirect_to @illness_request, notice: t('notices.illness_request')
     else
       render :new
@@ -35,7 +37,7 @@ class IllnessRequestsController < BaseController
     )
   end
 
-  def set_illness_request_id_to_system
-    Services::IllnessRequestCreator.new(IllnessRequest.last.id)
+  def set_illness_request_id_to_system(illness_request_id)
+    Services::IllnessRequestCreator.new(illness_request_id)
   end
 end
