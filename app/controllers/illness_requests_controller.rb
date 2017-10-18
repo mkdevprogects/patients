@@ -1,5 +1,3 @@
-require_relative '../../services/illness_request_creator'
-
 class IllnessRequestsController < BaseController
 
   def index
@@ -38,6 +36,6 @@ class IllnessRequestsController < BaseController
   end
 
   def set_illness_request_id_to_system(illness_request_id)
-    Services::IllnessRequestCreator.new(illness_request_id)
+    IllnessRequestCreator.new(illness_request_id)
   end
 end
