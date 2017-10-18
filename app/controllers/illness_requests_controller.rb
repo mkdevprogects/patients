@@ -15,8 +15,8 @@ class IllnessRequestsController < BaseController
 
   def create
     @illness_request = current_patient.illness_requests.build(illness_request_params)
-    if @illness_request.save
-      set_illness_request_id_to_system(@illness_request.id)
+    illness_request_creator = IllnessRequestCreator.new(@illness_request)
+    if illness_request_creator.run
       redirect_to @illness_request, notice: t('notices.illness_request')
     else
       render :new
@@ -33,9 +33,5 @@ class IllnessRequestsController < BaseController
         :patient_id,
         symptom_ids: []
     )
-  end
-
-  def set_illness_request_id_to_system(illness_request_id)
-    IllnessRequestCreator.new(illness_request_id)
   end
 end
