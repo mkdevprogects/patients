@@ -1,17 +1,16 @@
 class IllnessRequestCreator
 
-  attr_reader :illness_request
-
   def initialize(patient, params)
     @illness_request = patient.illness_requests.build(params)
   end
 
   def run
-    if @illness_request.save
-      Hutch.connect
-      Hutch.publish('illness.request.new', subject: @illness_request.id)
-    end
+    publish if @illness_request.save
     @illness_request
   end
-end
 
+  def publish
+    Hutch.connect
+    Hutch.publish('illness.request.new', subject: @illness_request.id)
+  end
+end
