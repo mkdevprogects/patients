@@ -11,6 +11,6 @@ class IllnessRequestCreator
 
   def publish
     Hutch.connect
-    Hutch.publish('illness.request.new', subject: @illness_request.id)
+    Hutch.publish(Settings.illness_request_topic, subject: @illness_request.id)
   end
 end
