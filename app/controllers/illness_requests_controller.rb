@@ -14,8 +14,9 @@ class IllnessRequestsController < BaseController
   end
 
   def create
-    @illness_request = current_patient.illness_requests.build(illness_request_params)
-    if @illness_request.save
+    illness_request_creator = IllnessRequestCreator.new(current_patient, illness_request_params)
+    @illness_request = illness_request_creator.run
+    if @illness_request.valid?
       redirect_to @illness_request, notice: t('notices.illness_request')
     else
       render :new
