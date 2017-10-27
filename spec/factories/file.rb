@@ -10,4 +10,8 @@ FactoryGirl.define do
   sequence :description do |n|
     Faker::Hobbit.quote
   end
+
+  sequence(:address) { "#{Faker::Address.street_address}, #{Faker::Address.city}" }
+  sequence(:latitude) { Faker::Address.latitude }
+  sequence(:longitude) { Faker::Address.longitude }
 end
