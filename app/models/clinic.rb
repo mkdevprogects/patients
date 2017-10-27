@@ -4,7 +4,7 @@ class Clinic < ActiveRecord::Base
 
   has_many :visits
 
-  validates :title, presence: true
+  validates :title, :address, :latitude, :longitude, presence: true
   validates :email, presence: true, uniqueness: true
 
   def specializations_titles

@@ -8,5 +8,6 @@ class Patient < ActiveRecord::Base
 
   has_many :illness_requests
 
+  validates :address, :latitude, :longitude, presence: true
   validates :email, presence: true, uniqueness: true
 end
