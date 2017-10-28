@@ -6,5 +6,8 @@ FactoryGirl.define do
     # phone
     sequence(:email) { |n| "patient#{n}@patient.com" }
     password '123123'
+    address
+    latitude
+    longitude
   end
 end

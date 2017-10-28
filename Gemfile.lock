@@ -116,6 +116,7 @@ GEM
     faker (1.8.4)
       i18n (~> 0.5)
     ffi (1.9.18)
+    geocoder (1.4.4)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     hutch (0.24.0)
@@ -289,6 +290,7 @@ DEPENDENCIES
   draper (~> 2.1)
   factory_girl_rails (~> 4.0)
   faker
+  geocoder
   hutch
   jbuilder (~> 2.0)
   jquery-rails

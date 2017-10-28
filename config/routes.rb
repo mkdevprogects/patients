@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :patient
+  # devise_for :patient
+  devise_for :patient, controllers: { registrations: 'patients/registrations' }
 
   root 'home#index'
 
