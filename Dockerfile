@@ -4,7 +4,6 @@ MAINTAINER Anton Karpenko <toshidono.it.work@gmail.com>
 RUN apt-get -y update
 RUN apt-get -y install nodejs
 COPY . /app/
-COPY . /app/
 WORKDIR /app
 RUN bundle install
 EXPOSE 3000
