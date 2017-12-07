@@ -19,5 +19,6 @@
 coverage
 doc/
 config/settings.local.yml
+.envrc
 config/settings/*.local.yml
 config/environments/*.local.yml
