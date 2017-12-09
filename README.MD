@@ -2,6 +2,7 @@
 {<img src="https://travis-ci.org/mkdevprogects/patients.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/mkdevprogects/patients]
 
 App: the patient's personal area.
+
 Functionality: medical card, symptom check and appointment to the doctor.
 
 Running:
