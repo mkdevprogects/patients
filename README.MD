@@ -1,41 +1,77 @@
 # README
 {<img src="https://travis-ci.org/mkdevprogects/patients.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/mkdevprogects/patients]
 
+App: the patient's personal area.
+Functionality: medical card, symptom check and appointment to the doctor.
+
 Running:
 
 * git clone git@github.com:mkdevprogects/base.git
-* cd ~/base
+* cd base/
 * Set the environment variables:
-  DB_HOST
-  PGPASSWORD
-  PGUSER
-  ENVPOSTGRES_DB
+  PGUSER  
+  PGPASSWORD  
+  ENVPOSTGRES_DB  
+  VOLUMES  
+  ENVPGDATA  
+  DB_HOST  
+  DB_PG_PORT  
+  DB_REDIS_HOST  
+  DB_REDIS_PORT  
+  HUTCH_MQ_HOST  
+  HUTCH_MQ_API_HOST
   
 * docker-compose -f docker-compose.demo.yml up
-* open browser and go to http://0.0.0.0:3000/
+* open browser and go to http://0.0.0.0:3000/ and see patient app
+* open browser and go to http://0.0.0.0:4000/ and see manager app
+* open browser and go to http://0.0.0.0:5000/ and see history app
 
 or
 
-1. Clone app: git clone git@github.com:mkdevprogects/migrations.git
-2. cd ~/migrations
-3. Set the environment variables:
+1. Set the environment variables for all apps:
+PGUSER
 DB_HOST
 PGPASSWORD
-PGUSER
-4. Create database (rake db:create)
-5. rake db:migrate
-6. git clone git@github.com:mkdevprogects/patients.git
-7. cd ~/patients
-4. rake db:seed
-5. rails s
-6. open browser and go to http://localhost:3000/
+ENVPOSTGRES_DB
+ENVPGDATA
+2. git clone git@github.com:mkdevprogects/base.git
+3. cd base/
+4. docker-compose up -d
+5. cd ..
+6. Clone app: git clone git@github.com:mkdevprogects/migrations.git
+7. cd migrations/
+8. Create database: rake db:create
+9. Run migrations database: rake db:migrate
+10. cd ..
+11. Clone app: git clone git@github.com:mkdevprogects/patients.git
+12. cd patients/
+13. Create test data: rake db:seed
+14. Run app: rails s
+15. open browser and go to http://localhost:3000/ and see patient app
 
 Example environment variables:
 
-DB_HOST=postgres
+PGUSER=postgres
 
 PGPASSWORD=12345
 
-PGUSER=postgres
+ENVPOSTGRES_DB=mkdev_dev
 
-ENVPOSTGRES_DB=some_base
+VOLUMES=/Users/user_name/pg_data
+
+ENVPGDATA=/Users/user_name/pg_data
+
+DB_HOST=postgres
+for running only this app use DB_HOST=localhost
+
+DB_PG_PORT=5432
+
+Set this environment variables if you run all apps:
+
+DB_REDIS_HOST=redis
+
+DB_REDIS_PORT=6379
+
+HUTCH_MQ_HOST=rabbitmq
+
+HUTCH_MQ_API_HOST=rabbitmq
