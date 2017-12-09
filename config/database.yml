@@ -2,10 +2,10 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: postgres
-  password: 12345
+  username: <%= ENV['PGUSER'] %>
+  password: <%= ENV['PGPASSWORD'] %>
   timeout: 5000
-  host: localhost
+  host: <%= ENV['DB_HOST'] %>
 
 development:
   <<: *default
